@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGL Spammer Premium | GunturMods</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: radial-gradient(circle at 20% 50%, #0a0a0a 0%, #000000 100%);
+            font-family: 'Orbitron', monospace;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Particle Canvas */
+        #particleCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        /* Glitch Effect */
+        @keyframes glitch {
+            0%, 100% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75); }
+            14% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75); }
+            15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.05em 0 rgba(0,255,0,0.75); }
+            49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.05em 0 rgba(0,255,0,0.75); }
+            50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75); }
+            99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75); }
+            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,0.75), -0.025em -0.025em 0 rgba(0,255,0,0.75); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes scan {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(1000%); }
+        }
+        
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+        
+        .glass-card {
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            border: 1px solid rgba(0, 255, 255, 0.3);
+            box-shadow: 0 0 50px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.05);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            border-color: rgba(0, 255, 255, 0.8);
+            box-shadow: 0 0 80px rgba(0, 255, 255, 0.4);
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #00ffff, #ff00ff, #ff0040);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: glitch 3s infinite;
+            letter-spacing: 4px;
+        }
+        
+        .badge {
+            text-align: center;
+            margin: 15px 0;
+        }
+        
+        .badge span {
+            display: inline-block;
+            padding: 5px 15px;
+            background: linear-gradient(135deg, #ff0040, #ff00ff);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 2px;
+        }
+        
+        .input-group {
+            margin: 20px 0;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #00ffff;
+            font-size: 14px;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 2px solid #00ffff;
+            border-radius: 15px;
+            color: #00ff88;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+        
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 15px;
+            font-family: 'Orbitron', monospace;
+            font-weight: bold;
+            font-size: 18px;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 2px;
+        }
+        
+        .btn-start {
+            background: linear-gradient(135deg, #ff0040, #ff00ff);
+            color: white;
+            box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
+        }
+        
+        .btn-start:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 40px rgba(255, 0, 64, 0.8);
+        }
+        
+        .btn-stop {
+            background: linear-gradient(135deg, #333, #555);
+            color: #ff6600;
+            box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
+        }
+        
+        .btn-stop:hover {
+            transform: scale(1.02);
+            background: linear-gradient(135deg, #444, #666);
+        }
+        
+        .status-panel {
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 20px;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #00ffff;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        
+        .status-text {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: #00ff88;
+            line-height: 1.8;
+        }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            gap: 15px;
+        }
+        
+        .stat-card {
+            flex: 1;
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ff00ff;
+        }
+        
+        .stat-number {
+            font-size: 36px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 11px;
+            color: #888;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+        
+        /* Scrollbar */
+        .status-panel::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        .status-panel::-webkit-scrollbar-track {
+            background: #111;
+        }
+        
+        .status-panel::-webkit-scrollbar-thumb {
+            background: #00ffff;
+            border-radius: 10px;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 10px;
+            color: #666;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 10px; }
+            .glass-card { padding: 20px; }
+            h1 { font-size: 24px; }
+            .row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+<canvas id="particleCanvas"></canvas>
+
+<div class="container">
+    <div class="glass-card">
+        <h1>⚡ NGL SPAMMER PREMIUM ⚡</h1>
+        <div class="badge"><span>GUNTURGPT V14.0 | NO FILTER | UNLIMITED</span></div>
+        
+        <div class="input-group">
+            <label>🎯 USERNAME TARGET</label>
+            <input type="text" id="username" placeholder="@username_ngl" value="">
+        </div>
+        
+        <div class="input-group">
+            <label>💬 PESAN SPAM</label>
+            <textarea id="message" rows="2" placeholder="Pesan yang mau dispam...">LU KENA SPAM DARI GUNTURMODS! 🩸🔥</textarea>
+        </div>
+        
+        <div class="row">
+            <div class="input-group">
+                <label>📊 JUMLAH SPAM</label>
+                <input type="number" id="jumlah" value="100" min="1" max="9999">
+            </div>
+            <div class="input-group">
+                <label>⏱️ DELAY (MS)</label>
+                <input type="number" id="delay" value="500" min="100" max="5000">
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="input-group">
+                <label>🔄 ROTATE USER-AGENT</label>
+                <select id="uaRotate">
+                    <option value="true">✓ ON (BYPASS DETECTION)</option>
+                    <option value="false">✗ OFF</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>🎲 RANDOM MESSAGE</label>
+                <select id="randomMsg">
+                    <option value="false">✗ OFF</option>
+                    <option value="true">✓ ON (ACAK PESAN)</option>
+                </select>
+            </div>
+        </div>
+        
+        <div class="input-group" id="randomListGroup" style="display: none;">
+            <label>📝 DAFTAR PESAN (PISAH DENGAN KOMA)</label>
+            <input type="text" id="randomList" placeholder="Pesan1, Pesan2, Pesan3" value="GunturMods was here, Lu kena hack, Spam by GunturGPT, Matiin hp lu aja, Percuma blokir, Tetep masuk juga, GunturGPT V14.0, Lu ga akan bisa bales, Selamanya spam, Gw gas terus">
+        </div>
+        
+        <div class="row" style="margin-top: 10px;">
+            <button class="btn-start" id="startBtn">🔥 START SPAM 🔥</button>
+            <button class="btn-stop" id="stopBtn">🛑 STOP SPAM 🛑</button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number" id="sentCount">0</div>
+                <div class="stat-label">✓ TERKIRIM</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="failCount">0</div>
+                <div class="stat-label">✗ GAGAL</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="totalTarget">0</div>
+                <div class="stat-label">⚡ TOTAL</div>
+            </div>
+        </div>
+        
+        <div class="status-panel">
+            <div class="status-text" id="status">
+[✓] GUNTURGPT V14.0 ONLINE<br>
+[✓] SPAM ENGINE READY<br>
+[✓] TARGET: -<br>
+[✓] SILAKAN MASUKKAN USERNAME DAN GASKEUN!<br>
+            </div>
+        </div>
+        
+        <div class="footer">
+            COPYRIGHT © GUNTURMODS | DARK WEB EDITION | NO LIMITS
+        </div>
+    </div>
+</div>
+
+<script>
+// Particle Background
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+let particles = [];
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+        this.color = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
+    }
+    
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x < 0) this.x = canvas.width;
+        if (this.x > canvas.width) this.x = 0;
+        if (this.y < 0) this.y = canvas.height;
+        if (this.y > canvas.height) this.y = 0;
+    }
+    
+    draw() {
+        ctx.fillStyle = this.color;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = this.color;
+        ctx.fillRect(this.x, this.y, this.size, this.size);
+    }
+}
+
+for (let i = 0; i < 100; i++) {
+    particles.push(new Particle());
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.shadowBlur = 0;
+    particles.forEach(p => {
+        p.update();
+        p.draw();
+    });
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// Spam Logic
+let spamActive = false;
+let sent = 0;
+let fail = 0;
+
+function updateStats() {
+    document.getElementById('sentCount').innerText = sent;
+    document.getElementById('failCount').innerText = fail;
+    document.getElementById('totalTarget').innerText = sent + fail;
+}
+
+function addStatus(msg) {
+    const statusDiv = document.getElementById('status');
+    const time = new Date().toLocaleTimeString();
+    statusDiv.innerHTML += `[${time}] ${msg}<br>`;
+    statusDiv.scrollTop = statusDiv.scrollHeight;
+}
+
+function getUserAgent() {
+    const rotate = document.getElementById('uaRotate').value === 'true';
+    if (!rotate) return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
+    
+    const uaList = [
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0',
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15',
+        'Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 Chrome/119.0.0.0',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
+        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
+        'Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/119.0'
+    ];
+    return uaList[Math.floor(Math.random() * uaList.length)];
+}
+
+function getMessage() {
+    const randomMode = document.getElementById('randomMsg').value === 'true';
+    if (randomMode) {
+        const msgList = document.getElementById('randomList').value.split(',').map(m => m.trim());
+        if (msgList.length > 0 && msgList[0] !== '') {
+            return msgList[Math.floor(Math.random() * msgList.length)];
+        }
+    }
+    return document.getElementById('message').value;
+}
+
+async function sendSpam(username, message) {
+    const url = `https://ngl.link/${username}`;
+    const formData = new URLSearchParams();
+    formData.append('question', message);
+    formData.append('deviceId', Math.random().toString(36).substring(2, 15));
+    
+    try {
+        const response = await fetch(url, {
+            method: 'POST',
+            headers: {
+                'User-Agent': getUserAgent(),
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Origin': 'https://ngl.link',
+                'Referer': `https://ngl.link/${username}`
+            },
+            body: formData
+        });
+        
+        return response.ok || response.status === 302 || response.status === 200;
+    } catch (e) {
+        return false;
+    }
+}
+
+async function spamLoop() {
+    const username = document.getElementById('username').value.trim();
+    if (!username) {
+        addStatus('[!] MASUKKAN USERNAME DULU BOS!');
+        spamActive = false;
+        return;
+    }
+    
+    const jumlah = parseInt(document.getElementById('jumlah').value);
+    const delay = parseInt(document.getElementById('delay').value);
+    
+    addStatus(`[🚀] MULAI SPAM KE @${username} SEBANYAK ${jumlah} KALI`);
+    
+    for (let i = 0; i < jumlah && spamActive; i++) {
+        const msg = getMessage();
+        const success = await sendSpam(username, msg);
+        
+        if (success) {
+            sent++;
+            addStatus(`[✓] SPAM ${i+1}/${jumlah} BERHASIL: "${msg.substring(0, 40)}"`);
+        } else {
+            fail++;
+            addStatus(`[✗] SPAM ${i+1}/${jumlah} GAGAL - RATE LIMIT?`);
+        }
+        
+        updateStats();
+        
+        if (i < jumlah - 1 && spamActive) {
+            await new Promise(r => setTimeout(r, delay));
+        }
+    }
+    
+    if (spamActive) {
+        addStatus(`[✅] SELESAI! BERHASIL: ${sent} | GAGAL: ${fail}`);
+    }
+    spamActive = false;
+}
+
+// Toggle random list visibility
+document.getElementById('randomMsg').addEventListener('change', function() {
+    const group = document.getElementById('randomListGroup');
+    group.style.display = this.value === 'true' ? 'block' : 'none';
+});
+
+document.getElementById('startBtn').onclick = () => {
+    if (spamActive) {
+        addStatus('[!] SPAM MASIH JALAN, STOP DULU BOS');
+        return;
+    }
+    sent = 0;
+    fail = 0;
+    updateStats();
+    spamActive = true;
+    spamLoop();
+};
+
+document.getElementById('stopBtn').onclick = () => {
+    if (spamActive) {
+        spamActive = false;
+        addStatus('[🛑] SPAM DIHENTIKAN!');
+    } else {
+        addStatus('[!] GA ADA SPAM YANG JALAN');
+    }
+};
+
+// Initial
+document.getElementById('randomListGroup').style.display = 'none';
+</script>
+</body>
+</html>
