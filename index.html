@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGL Spammer Premium | GunturMods</title>
+    <title>NGL Spammer + Custom Text | GunturMods</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
-        
         * {
             margin: 0;
             padding: 0;
@@ -14,523 +12,706 @@
         }
         
         body {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+            font-family: 'Courier New', monospace;
             min-height: 100vh;
-            background: radial-gradient(circle at 20% 50%, #0a0a0a 0%, #000000 100%);
-            font-family: 'Orbitron', monospace;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Particle Canvas */
-        #particleCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-        }
-        
-        /* Glitch Effect */
-        @keyframes glitch {
-            0%, 100% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75); }
-            14% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75), -0.05em -0.025em 0 rgba(0,255,0,0.75); }
-            15% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.05em 0 rgba(0,255,0,0.75); }
-            49% { text-shadow: -0.05em -0.025em 0 rgba(255,0,0,0.75), 0.025em 0.05em 0 rgba(0,255,0,0.75); }
-            50% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75); }
-            99% { text-shadow: 0.025em 0.05em 0 rgba(255,0,0,0.75), 0.05em 0 0 rgba(0,255,0,0.75); }
-            100% { text-shadow: -0.025em 0 0 rgba(255,0,0,0.75), -0.025em -0.025em 0 rgba(0,255,0,0.75); }
-        }
-        
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-        
-        @keyframes scan {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(1000%); }
-        }
-        
-        .container {
-            position: relative;
-            z-index: 1;
-            max-width: 900px;
-            margin: 30px auto;
             padding: 20px;
         }
         
-        .glass-card {
-            background: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(15px);
-            border-radius: 30px;
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            box-shadow: 0 0 50px rgba(0, 255, 255, 0.2), inset 0 0 30px rgba(0, 255, 255, 0.05);
-            padding: 30px;
-            transition: all 0.3s ease;
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
         }
         
-        .glass-card:hover {
-            border-color: rgba(0, 255, 255, 0.8);
-            box-shadow: 0 0 80px rgba(0, 255, 255, 0.4);
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
         
-        h1 {
-            text-align: center;
-            font-size: 42px;
-            font-weight: 900;
-            background: linear-gradient(135deg, #00ffff, #ff00ff, #ff0040);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: glitch 3s infinite;
-            letter-spacing: 4px;
+        .panel {
+            background: rgba(0,0,0,0.85);
+            border: 2px solid #00ff41;
+            border-radius: 15px;
+            padding: 20px;
         }
         
-        .badge {
-            text-align: center;
-            margin: 15px 0;
-        }
-        
-        .badge span {
-            display: inline-block;
-            padding: 5px 15px;
-            background: linear-gradient(135deg, #ff0040, #ff00ff);
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            color: #fff;
-            letter-spacing: 2px;
+        .panel h3 {
+            color: #ff0040;
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-left: 3px solid #00ff41;
+            padding-left: 10px;
         }
         
         .input-group {
-            margin: 20px 0;
+            margin: 12px 0;
         }
         
         label {
             display: block;
-            margin-bottom: 8px;
-            color: #00ffff;
-            font-size: 14px;
-            letter-spacing: 2px;
+            color: #00ff41;
+            margin-bottom: 5px;
+            font-size: 12px;
             font-weight: bold;
         }
         
         input, textarea, select {
             width: 100%;
-            padding: 15px;
-            background: rgba(0, 0, 0, 0.8);
-            border: 2px solid #00ffff;
-            border-radius: 15px;
-            color: #00ff88;
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 14px;
-            transition: all 0.3s ease;
-        }
-        
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: #ff00ff;
-            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+            padding: 10px;
+            background: #000;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+            border-radius: 6px;
+            font-family: monospace;
         }
         
         .row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 15px;
+            gap: 10px;
+        }
+        
+        .row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
         }
         
         button {
-            width: 100%;
-            padding: 15px;
-            font-family: 'Orbitron', monospace;
+            padding: 12px;
+            font-size: 16px;
             font-weight: bold;
-            font-size: 18px;
             border: none;
-            border-radius: 15px;
+            border-radius: 8px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            letter-spacing: 2px;
+            transition: 0.3s;
+            font-family: monospace;
         }
         
         .btn-start {
-            background: linear-gradient(135deg, #ff0040, #ff00ff);
+            background: #ff0040;
             color: white;
-            box-shadow: 0 0 20px rgba(255, 0, 64, 0.5);
         }
         
         .btn-start:hover {
+            background: #cc0030;
             transform: scale(1.02);
-            box-shadow: 0 0 40px rgba(255, 0, 64, 0.8);
         }
         
         .btn-stop {
-            background: linear-gradient(135deg, #333, #555);
+            background: #333;
             color: #ff6600;
-            box-shadow: 0 0 10px rgba(255, 102, 0, 0.3);
         }
         
         .btn-stop:hover {
-            transform: scale(1.02);
-            background: linear-gradient(135deg, #444, #666);
+            background: #555;
         }
         
-        .status-panel {
-            background: rgba(0, 0, 0, 0.9);
-            border-radius: 20px;
-            padding: 20px;
-            margin-top: 20px;
-            border: 1px solid #00ffff;
-            max-height: 250px;
+        .preview-box {
+            background: #111;
+            border: 2px dashed #00ff41;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 15px 0;
+            min-height: 150px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        #previewText {
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        
+        .status-box {
+            background: #000;
+            border: 1px solid #00ff41;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            height: 150px;
             overflow-y: auto;
-        }
-        
-        .status-text {
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 12px;
-            color: #00ff88;
-            line-height: 1.8;
+            font-family: monospace;
+            font-size: 11px;
+            color: #00ff41;
         }
         
         .stats {
             display: flex;
-            justify-content: space-around;
-            margin: 20px 0;
-            gap: 15px;
+            gap: 10px;
+            margin: 15px 0;
         }
         
-        .stat-card {
+        .stat {
             flex: 1;
-            background: rgba(0, 0, 0, 0.8);
-            border-radius: 15px;
-            padding: 15px;
-            text-align: center;
-            border: 1px solid #ff00ff;
-        }
-        
-        .stat-number {
-            font-size: 36px;
-            font-weight: bold;
-            background: linear-gradient(135deg, #00ffff, #ff00ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-        
-        .stat-label {
-            font-size: 11px;
-            color: #888;
-            margin-top: 5px;
-            letter-spacing: 1px;
-        }
-        
-        /* Scrollbar */
-        .status-panel::-webkit-scrollbar {
-            width: 5px;
-        }
-        
-        .status-panel::-webkit-scrollbar-track {
             background: #111;
+            padding: 8px;
+            text-align: center;
+            border-radius: 6px;
+            border: 1px solid #00ff41;
         }
         
-        .status-panel::-webkit-scrollbar-thumb {
-            background: #00ffff;
+        .stat-num {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0040;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 15px;
+            background: #222;
             border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #00ff41, #ff0040);
+            width: 0%;
+            transition: width 0.3s;
         }
         
         .footer {
             text-align: center;
             margin-top: 20px;
             font-size: 10px;
-            color: #666;
-            letter-spacing: 1px;
+            color: #555;
         }
         
-        @media (max-width: 600px) {
-            .container { padding: 10px; }
-            .glass-card { padding: 20px; }
-            h1 { font-size: 24px; }
-            .row { grid-template-columns: 1fr; }
+        hr {
+            border-color: #00ff41;
+            margin: 15px 0;
+        }
+        
+        @media (max-width: 900px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .color-input {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .color-input input[type="color"] {
+            width: 50px;
+            height: 40px;
+            padding: 2px;
+        }
+        
+        .effect-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            background: #ff0040;
+            color: white;
+            border-radius: 4px;
+            font-size: 10px;
+            margin-right: 5px;
+            margin-top: 5px;
         }
     </style>
 </head>
 <body>
-<canvas id="particleCanvas"></canvas>
-
 <div class="container">
-    <div class="glass-card">
-        <h1>⚡ NGL SPAMMER PREMIUM ⚡</h1>
-        <div class="badge"><span>GUNTURGPT V14.0 | NO FILTER | UNLIMITED</span></div>
-        
-        <div class="input-group">
-            <label>🎯 USERNAME TARGET</label>
-            <input type="text" id="username" placeholder="@username_ngl" value="">
-        </div>
-        
-        <div class="input-group">
-            <label>💬 PESAN SPAM</label>
-            <textarea id="message" rows="2" placeholder="Pesan yang mau dispam...">LU KENA SPAM DARI GUNTURMODS! 🩸🔥</textarea>
-        </div>
-        
-        <div class="row">
+    <div style="text-align: center; margin-bottom: 20px;">
+        <h1 style="color: #ff0040; text-shadow: 0 0 10px #ff0040;">💀 NGL SPAMMER + TEXT CUSTOM 💀</h1>
+        <p style="color: #00ff41;">GunturGPT V14.0 | © GunturMods | BISA SETTING TEXT SEMAU LU</p>
+    </div>
+    
+    <div class="main-grid">
+        <!-- LEFT PANEL: SPAM SETTINGS -->
+        <div class="panel">
+            <h3>⚙️ SPAM SETTINGS</h3>
+            
             <div class="input-group">
-                <label>📊 JUMLAH SPAM</label>
-                <input type="number" id="jumlah" value="100" min="1" max="9999">
+                <label>🎯 USERNAME NGL (tanpa @)</label>
+                <input type="text" id="username" placeholder="contoh: johndoe" value="">
             </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>📊 JUMLAH SPAM</label>
+                    <input type="number" id="jumlah" value="500" min="1" max="10000">
+                </div>
+                <div class="input-group">
+                    <label>⚡ CONCURRENT</label>
+                    <select id="concurrent">
+                        <option value="1">1 (Lambat)</option>
+                        <option value="3" selected>3 (Normal)</option>
+                        <option value="5">5 (Cepat)</option>
+                        <option value="10">10 (Extreme)</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>🔄 ROTATE USER-AGENT</label>
+                    <select id="uaRotate">
+                        <option value="true" selected>ON</option>
+                        <option value="false">OFF</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>🎲 RANDOM PESAN</label>
+                    <select id="randomMsg">
+                        <option value="true" selected>ON</option>
+                        <option value="false">OFF</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="input-group" id="randomListGroup">
+                <label>📝 LIST PESAN (pisah dengan | )</label>
+                <input type="text" id="randomList" value="GunturMods was here|Lu kena hack bos|Spam by GunturGPT|Matiin hp aja|Percuma blokir|Tetep masuk|GunturGPT V14.0|Lu kena spam massal|Gua gas terus|NGL lu bangkrut">
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-num" id="sentCount">0</div>
+                    <div class="stat-label">✅ BERHASIL</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" id="failCount">0</div>
+                    <div class="stat-label">❌ GAGAL</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" id="totalCount">0</div>
+                    <div class="stat-label">📨 TOTAL</div>
+                </div>
+            </div>
+            
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            
+            <div class="row">
+                <button class="btn-start" id="startBtn">🔥 MULAI SPAM 🔥</button>
+                <button class="btn-stop" id="stopBtn">🛑 BERHENTI 🛑</button>
+                <button class="btn-stop" id="resetBtn" style="background:#222;">🔄 RESET</button>
+            </div>
+            
+            <div class="status-box" id="statusBox">
+                [✓] GunturGPT V14.0 READY<br>
+                [✓] Custom Text Settings ACTIVE<br>
+                [✓] Setting text dulu, preview langsung keliatan!<br>
+            </div>
+        </div>
+        
+        <!-- RIGHT PANEL: TEXT CUSTOMIZATION -->
+        <div class="panel">
+            <h3>🎨 TEXT CUSTOMIZATION - SETTING SEMAU LU</h3>
+            
             <div class="input-group">
-                <label>⏱️ DELAY (MS)</label>
-                <input type="number" id="delay" value="500" min="100" max="5000">
+                <label>📝 TEKS SPAM (yang mau dikirim)</label>
+                <textarea id="messageText" rows="2" placeholder="Tulis teks spam disini...">🔥 LU KENA SPAM DARI GUNTURMODS! 🔥</textarea>
             </div>
-        </div>
-        
-        <div class="row">
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>🔤 FONT FAMILY</label>
+                    <select id="fontFamily">
+                        <option value="'Courier New', monospace">Courier New (Default)</option>
+                        <option value="'Arial Black', sans-serif">Arial Black</option>
+                        <option value="'Impact', sans-serif">Impact</option>
+                        <option value="'Comic Sans MS', cursive">Comic Sans MS</option>
+                        <option value="'Verdana', sans-serif">Verdana</option>
+                        <option value="'Georgia', serif">Georgia</option>
+                        <option value="'Times New Roman', serif">Times New Roman</option>
+                        <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+                        <option value="'Monaco', monospace">Monaco</option>
+                        <option value="'Press Start 2P', cursive">Pixel/Retro</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>📏 UKURAN FONT (px)</label>
+                    <input type="number" id="fontSize" value="24" min="8" max="72">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>🎨 WARNA TEKS</label>
+                    <div class="color-input">
+                        <input type="color" id="textColor" value="#ff0040">
+                        <input type="text" id="textColorHex" placeholder="#ff0040" style="flex:1">
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label>✨ WARNA BACKGROUND</label>
+                    <div class="color-input">
+                        <input type="color" id="bgColor" value="#000000">
+                        <input type="text" id="bgColorHex" placeholder="#000000" style="flex:1">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>💪 BOLD</label>
+                    <select id="fontWeight">
+                        <option value="normal">Normal</option>
+                        <option value="bold" selected>Bold</option>
+                        <option value="900">Extra Bold</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>📐 TEXT ALIGN</label>
+                    <select id="textAlign">
+                        <option value="left">Kiri</option>
+                        <option value="center" selected>Tengah</option>
+                        <option value="right">Kanan</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>🔄 TEXT TRANSFORM</label>
+                    <select id="textTransform">
+                        <option value="none">Normal</option>
+                        <option value="uppercase">UPPERCASE</option>
+                        <option value="lowercase">lowercase</option>
+                        <option value="capitalize">Capitalize Each Word</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>✍️ TEXT DECORATION</label>
+                    <select id="textDecoration">
+                        <option value="none">None</option>
+                        <option value="underline">Underline</option>
+                        <option value="line-through">Coret</option>
+                        <option value="overline">Overline</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>🌟 TEXT SHADOW</label>
+                    <select id="textShadow" onchange="toggleShadowOptions()">
+                        <option value="none">None</option>
+                        <option value="neon" selected>Neon Glow</option>
+                        <option value="hard">Hard Shadow</option>
+                        <option value="glitch">Glitch Effect</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                </div>
+                <div class="input-group" id="shadowCustomGroup" style="display:none;">
+                    <label>🎯 Shadow Custom (px)</label>
+                    <input type="text" id="shadowCustom" placeholder="2px 2px 4px #ff00ff">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="input-group">
+                    <label>🔲 BORDER</label>
+                    <select id="borderStyle">
+                        <option value="none">None</option>
+                        <option value="solid">Solid</option>
+                        <option value="dashed">Dashed</option>
+                        <option value="dotted">Dotted</option>
+                        <option value="double">Double</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>🎨 WARNA BORDER</label>
+                    <input type="color" id="borderColor" value="#00ff41">
+                </div>
+            </div>
+            
             <div class="input-group">
-                <label>🔄 ROTATE USER-AGENT</label>
-                <select id="uaRotate">
-                    <option value="true">✓ ON (BYPASS DETECTION)</option>
-                    <option value="false">✗ OFF</option>
-                </select>
+                <label>📏 PADDING (px)</label>
+                <input type="text" id="padding" value="10px 20px" placeholder="10px 20px">
             </div>
+            
             <div class="input-group">
-                <label>🎲 RANDOM MESSAGE</label>
-                <select id="randomMsg">
-                    <option value="false">✗ OFF</option>
-                    <option value="true">✓ ON (ACAK PESAN)</option>
-                </select>
+                <label>🔄 ROTATE (deg)</label>
+                <input type="range" id="rotate" min="-20" max="20" value="0" step="1">
+                <span id="rotateValue" style="color:#00ff41; margin-left:10px;">0°</span>
+            </div>
+            
+            <!-- PREVIEW SECTION -->
+            <div style="margin-top: 15px;">
+                <label>👁️ LIVE PREVIEW</label>
+                <div class="preview-box">
+                    <div id="previewText">Preview text disini!</div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <button id="applyPreviewBtn" style="background:#00ff41; color:#000;">🔄 Apply ke Spam</button>
+                <button id="copyStyleBtn" style="background:#ff00ff; color:#fff;">📋 Copy Style CSS</button>
+            </div>
+            
+            <div class="input-group">
+                <label>📋 Generated Text (with style)</label>
+                <textarea id="styledOutput" rows="2" readonly style="resize: none;" placeholder="Style akan muncul disini..."></textarea>
             </div>
         </div>
-        
-        <div class="input-group" id="randomListGroup" style="display: none;">
-            <label>📝 DAFTAR PESAN (PISAH DENGAN KOMA)</label>
-            <input type="text" id="randomList" placeholder="Pesan1, Pesan2, Pesan3" value="GunturMods was here, Lu kena hack, Spam by GunturGPT, Matiin hp lu aja, Percuma blokir, Tetep masuk juga, GunturGPT V14.0, Lu ga akan bisa bales, Selamanya spam, Gw gas terus">
-        </div>
-        
-        <div class="row" style="margin-top: 10px;">
-            <button class="btn-start" id="startBtn">🔥 START SPAM 🔥</button>
-            <button class="btn-stop" id="stopBtn">🛑 STOP SPAM 🛑</button>
-        </div>
-        
-        <div class="stats">
-            <div class="stat-card">
-                <div class="stat-number" id="sentCount">0</div>
-                <div class="stat-label">✓ TERKIRIM</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="failCount">0</div>
-                <div class="stat-label">✗ GAGAL</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-number" id="totalTarget">0</div>
-                <div class="stat-label">⚡ TOTAL</div>
-            </div>
-        </div>
-        
-        <div class="status-panel">
-            <div class="status-text" id="status">
-[✓] GUNTURGPT V14.0 ONLINE<br>
-[✓] SPAM ENGINE READY<br>
-[✓] TARGET: -<br>
-[✓] SILAKAN MASUKKAN USERNAME DAN GASKEUN!<br>
-            </div>
-        </div>
-        
-        <div class="footer">
-            COPYRIGHT © GUNTURMODS | DARK WEB EDITION | NO LIMITS
-        </div>
+    </div>
+    
+    <div class="footer">
+        COPYRIGHT © GUNTURMODS | TEXT CUSTOMIZATION FULL | LIVE PREVIEW
     </div>
 </div>
 
 <script>
-// Particle Background
-const canvas = document.getElementById('particleCanvas');
-const ctx = canvas.getContext('2d');
-let particles = [];
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-class Particle {
-    constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 2 + 1;
-        this.speedX = (Math.random() - 0.5) * 1.5;
-        this.speedY = (Math.random() - 0.5) * 1.5;
-        this.color = `hsl(${Math.random() * 60 + 180}, 100%, 50%)`;
+// ============ TEXT STYLING ============
+function updatePreview() {
+    const text = document.getElementById('messageText').value || "Preview text disini!";
+    const fontFamily = document.getElementById('fontFamily').value;
+    const fontSize = document.getElementById('fontSize').value + 'px';
+    const color = document.getElementById('textColor').value;
+    const bgColor = document.getElementById('bgColor').value;
+    const fontWeight = document.getElementById('fontWeight').value;
+    const textAlign = document.getElementById('textAlign').value;
+    const textTransform = document.getElementById('textTransform').value;
+    const textDecoration = document.getElementById('textDecoration').value;
+    const borderStyle = document.getElementById('borderStyle').value;
+    const borderColor = document.getElementById('borderColor').value;
+    const padding = document.getElementById('padding').value;
+    const rotate = document.getElementById('rotate').value;
+    
+    let textShadow = 'none';
+    const shadowType = document.getElementById('textShadow').value;
+    if (shadowType === 'neon') {
+        textShadow = `0 0 5px ${color}, 0 0 10px ${color}, 0 0 20px ${color}`;
+    } else if (shadowType === 'hard') {
+        textShadow = `3px 3px 0px #000`;
+    } else if (shadowType === 'glitch') {
+        textShadow = `-2px 0 red, 2px 0 blue`;
+    } else if (shadowType === 'custom') {
+        textShadow = document.getElementById('shadowCustom').value || '2px 2px 4px rgba(0,0,0,0.5)';
     }
     
-    update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-        if (this.x < 0) this.x = canvas.width;
-        if (this.x > canvas.width) this.x = 0;
-        if (this.y < 0) this.y = canvas.height;
-        if (this.y > canvas.height) this.y = 0;
-    }
+    let border = borderStyle !== 'none' ? `2px ${borderStyle} ${borderColor}` : 'none';
     
-    draw() {
-        ctx.fillStyle = this.color;
-        ctx.shadowBlur = 10;
-        ctx.shadowColor = this.color;
-        ctx.fillRect(this.x, this.y, this.size, this.size);
-    }
+    const style = `
+        font-family: ${fontFamily};
+        font-size: ${fontSize};
+        color: ${color};
+        background: ${bgColor};
+        font-weight: ${fontWeight};
+        text-align: ${textAlign};
+        text-transform: ${textTransform};
+        text-decoration: ${textDecoration};
+        text-shadow: ${textShadow};
+        border: ${border};
+        padding: ${padding};
+        transform: rotate(${rotate}deg);
+        display: inline-block;
+    `;
+    
+    const preview = document.getElementById('previewText');
+    preview.style.cssText = style;
+    preview.innerText = text;
+    
+    // Update output
+    document.getElementById('styledOutput').value = text;
 }
 
-for (let i = 0; i < 100; i++) {
-    particles.push(new Particle());
+function toggleShadowOptions() {
+    const shadowType = document.getElementById('textShadow').value;
+    const customGroup = document.getElementById('shadowCustomGroup');
+    customGroup.style.display = shadowType === 'custom' ? 'block' : 'none';
+    updatePreview();
 }
 
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.shadowBlur = 0;
-    particles.forEach(p => {
-        p.update();
-        p.draw();
-    });
-    requestAnimationFrame(animateParticles);
-}
-animateParticles();
+// Event listeners untuk styling
+const styleInputs = ['fontFamily', 'fontSize', 'textColor', 'bgColor', 'fontWeight', 'textAlign', 'textTransform', 'textDecoration', 'borderStyle', 'borderColor', 'padding', 'rotate', 'messageText'];
+styleInputs.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener('input', updatePreview);
+});
+document.getElementById('textShadow').addEventListener('change', updatePreview);
+document.getElementById('shadowCustom')?.addEventListener('input', updatePreview);
+document.getElementById('rotate').addEventListener('input', function() {
+    document.getElementById('rotateValue').innerText = this.value + '°';
+    updatePreview();
+});
+document.getElementById('textColor').addEventListener('input', function() {
+    document.getElementById('textColorHex').value = this.value;
+    updatePreview();
+});
+document.getElementById('bgColor').addEventListener('input', function() {
+    document.getElementById('bgColorHex').value = this.value;
+    updatePreview();
+});
+document.getElementById('textColorHex').addEventListener('input', function() {
+    document.getElementById('textColor').value = this.value;
+    updatePreview();
+});
+document.getElementById('bgColorHex').addEventListener('input', function() {
+    document.getElementById('bgColor').value = this.value;
+    updatePreview();
+});
 
-// Spam Logic
+document.getElementById('applyPreviewBtn').onclick = () => {
+    const styledText = document.getElementById('previewText').innerText;
+    document.getElementById('messageText').value = styledText;
+    updatePreview();
+    addStatus('[✓] Style applied ke teks spam!');
+};
+
+document.getElementById('copyStyleBtn').onclick = () => {
+    const style = document.getElementById('previewText').style.cssText;
+    navigator.clipboard.writeText(style);
+    addStatus('[✓] CSS Style copied!');
+};
+
+// ============ SPAM ENGINE ============
 let spamActive = false;
-let sent = 0;
-let fail = 0;
+let stopRequested = false;
+let sent = 0, fail = 0, totalProcessed = 0, totalTarget = 0;
 
-function updateStats() {
+function addStatus(msg, isError = false) {
+    const statusBox = document.getElementById('statusBox');
+    const time = new Date().toLocaleTimeString();
+    const color = isError ? '#ff6600' : '#00ff41';
+    statusBox.innerHTML += `<span style="color:${color}">[${time}] ${msg}</span><br>`;
+    statusBox.scrollTop = statusBox.scrollHeight;
+}
+
+function updateUI() {
     document.getElementById('sentCount').innerText = sent;
     document.getElementById('failCount').innerText = fail;
-    document.getElementById('totalTarget').innerText = sent + fail;
-}
-
-function addStatus(msg) {
-    const statusDiv = document.getElementById('status');
-    const time = new Date().toLocaleTimeString();
-    statusDiv.innerHTML += `[${time}] ${msg}<br>`;
-    statusDiv.scrollTop = statusDiv.scrollHeight;
+    document.getElementById('totalCount').innerText = totalProcessed;
+    const percent = totalTarget > 0 ? (totalProcessed / totalTarget) * 100 : 0;
+    document.getElementById('progressFill').style.width = percent + '%';
 }
 
 function getUserAgent() {
-    const rotate = document.getElementById('uaRotate').value === 'true';
-    if (!rotate) return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
-    
-    const uaList = [
+    if (document.getElementById('uaRotate').value !== 'true') {
+        return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
+    }
+    const agents = [
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/120.0.0.0',
-        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15',
-        'Mozilla/5.0 (Linux; Android 13; SM-G998B) AppleWebKit/537.36 Chrome/119.0.0.0',
+        'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
         'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
-        'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36',
-        'Mozilla/5.0 (Windows NT 10.0; rv:109.0) Gecko/20100101 Firefox/119.0'
+        'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15',
+        'Mozilla/5.0 (Linux; Android 13; SM-G991B) AppleWebKit/537.36',
     ];
-    return uaList[Math.floor(Math.random() * uaList.length)];
+    return agents[Math.floor(Math.random() * agents.length)];
 }
 
-function getMessage() {
-    const randomMode = document.getElementById('randomMsg').value === 'true';
-    if (randomMode) {
-        const msgList = document.getElementById('randomList').value.split(',').map(m => m.trim());
-        if (msgList.length > 0 && msgList[0] !== '') {
+function getMessageText() {
+    if (document.getElementById('randomMsg').value === 'true') {
+        const msgList = document.getElementById('randomList').value.split('|').map(m => m.trim()).filter(m => m.length > 0);
+        if (msgList.length > 0) {
             return msgList[Math.floor(Math.random() * msgList.length)];
         }
     }
-    return document.getElementById('message').value;
+    return document.getElementById('messageText').value;
+}
+
+function generateDeviceId() {
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        const r = Math.random() * 16 | 0;
+        const v = c === 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
 }
 
 async function sendSpam(username, message) {
-    const url = `https://ngl.link/${username}`;
+    const endpoints = [`https://ngl.link/${username}`, `https://ngl.link/api/submit`];
     const formData = new URLSearchParams();
     formData.append('question', message);
-    formData.append('deviceId', Math.random().toString(36).substring(2, 15));
+    formData.append('deviceId', generateDeviceId());
     
-    try {
-        const response = await fetch(url, {
-            method: 'POST',
-            headers: {
-                'User-Agent': getUserAgent(),
-                'Content-Type': 'application/x-www-form-urlencoded',
-                'Origin': 'https://ngl.link',
-                'Referer': `https://ngl.link/${username}`
-            },
-            body: formData
-        });
-        
-        return response.ok || response.status === 302 || response.status === 200;
-    } catch (e) {
-        return false;
+    for (let endpoint of endpoints) {
+        try {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: {
+                    'User-Agent': getUserAgent(),
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'Origin': 'https://ngl.link',
+                    'Referer': `https://ngl.link/${username}`,
+                },
+                body: formData
+            });
+            if (response.ok || response.status === 302) return true;
+        } catch(e) {}
     }
+    return false;
 }
 
-async function spamLoop() {
-    const username = document.getElementById('username').value.trim();
+async function startSpam() {
+    let username = document.getElementById('username').value.trim();
     if (!username) {
-        addStatus('[!] MASUKKAN USERNAME DULU BOS!');
-        spamActive = false;
+        addStatus('[!] Masukkan username dulu bos!', true);
         return;
     }
+    username = username.replace('@', '');
     
-    const jumlah = parseInt(document.getElementById('jumlah').value);
-    const delay = parseInt(document.getElementById('delay').value);
+    totalTarget = parseInt(document.getElementById('jumlah').value);
+    const concurrent = parseInt(document.getElementById('concurrent').value);
     
-    addStatus(`[🚀] MULAI SPAM KE @${username} SEBANYAK ${jumlah} KALI`);
+    stopRequested = false;
+    spamActive = true;
+    sent = 0;
+    fail = 0;
+    totalProcessed = 0;
+    updateUI();
     
-    for (let i = 0; i < jumlah && spamActive; i++) {
-        const msg = getMessage();
-        const success = await sendSpam(username, msg);
+    addStatus(`[🚀] Mulai spam ke @${username} | Target: ${totalTarget} | Concurrent: ${concurrent}`);
+    
+    while (totalProcessed < totalTarget && spamActive && !stopRequested) {
+        const batchSize = Math.min(concurrent, totalTarget - totalProcessed);
+        const promises = [];
         
-        if (success) {
-            sent++;
-            addStatus(`[✓] SPAM ${i+1}/${jumlah} BERHASIL: "${msg.substring(0, 40)}"`);
-        } else {
-            fail++;
-            addStatus(`[✗] SPAM ${i+1}/${jumlah} GAGAL - RATE LIMIT?`);
+        for (let i = 0; i < batchSize; i++) {
+            const msg = getMessageText();
+            promises.push(
+                sendSpam(username, msg).then(success => {
+                    if (success) { sent++; }
+                    else { fail++; }
+                    totalProcessed++;
+                    updateUI();
+                })
+            );
         }
         
-        updateStats();
-        
-        if (i < jumlah - 1 && spamActive) {
-            await new Promise(r => setTimeout(r, delay));
+        await Promise.all(promises);
+        if (totalProcessed < totalTarget && spamActive && !stopRequested) {
+            await new Promise(r => setTimeout(r, 300));
         }
     }
     
-    if (spamActive) {
-        addStatus(`[✅] SELESAI! BERHASIL: ${sent} | GAGAL: ${fail}`);
-    }
+    addStatus(stopRequested ? `[🛑] Dihentikan! Berhasil: ${sent} | Gagal: ${fail}` : `[✅] Selesai! Berhasil: ${sent} | Gagal: ${fail}`);
     spamActive = false;
 }
 
-// Toggle random list visibility
+document.getElementById('startBtn').onclick = () => {
+    if (spamActive) { addStatus('[!] Spam masih jalan!', true); return; }
+    startSpam();
+};
+document.getElementById('stopBtn').onclick = () => {
+    if (spamActive) { stopRequested = true; spamActive = false; addStatus('[🛑] Menghentikan spam...'); }
+    else { addStatus('[!] Tidak ada spam yang jalan'); }
+};
+document.getElementById('resetBtn').onclick = () => {
+    sent = 0; fail = 0; totalProcessed = 0;
+    updateUI();
+    addStatus('[⟳] Statistik direset');
+};
+
 document.getElementById('randomMsg').addEventListener('change', function() {
-    const group = document.getElementById('randomListGroup');
-    group.style.display = this.value === 'true' ? 'block' : 'none';
+    document.getElementById('randomListGroup').style.display = this.value === 'true' ? 'block' : 'none';
 });
 
-document.getElementById('startBtn').onclick = () => {
-    if (spamActive) {
-        addStatus('[!] SPAM MASIH JALAN, STOP DULU BOS');
-        return;
-    }
-    sent = 0;
-    fail = 0;
-    updateStats();
-    spamActive = true;
-    spamLoop();
-};
-
-document.getElementById('stopBtn').onclick = () => {
-    if (spamActive) {
-        spamActive = false;
-        addStatus('[🛑] SPAM DIHENTIKAN!');
-    } else {
-        addStatus('[!] GA ADA SPAM YANG JALAN');
-    }
-};
-
 // Initial
-document.getElementById('randomListGroup').style.display = 'none';
+updatePreview();
+document.getElementById('randomListGroup').style.display = 'block';
+addStatus('[✓] TEXT CUSTOMIZATION READY - Setting teks semau lu!');
 </script>
 </body>
 </html>
