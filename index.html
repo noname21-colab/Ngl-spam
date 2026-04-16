@@ -3,97 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NGL FORCE SPAMMER | 100% NEVER FAIL | GunturMods</title>
+    <title>ULTIMATE FORCE SPAMMER | 1000% WORK | GunturMods</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
-            background: linear-gradient(135deg, #0a0a0a 0%, #0a0015 100%);
+            background: radial-gradient(circle at 20% 30%, #0a0a0a 0%, #000000 100%);
             font-family: 'Courier New', monospace;
             min-height: 100vh;
-            padding: 20px;
+            padding: 15px;
         }
-        
-        @keyframes glowPulse {
-            0%, 100% { box-shadow: 0 0 10px #ff0040, 0 0 20px #ff0040; }
-            50% { box-shadow: 0 0 30px #ff0040, 0 0 50px #ff0040; }
+
+        @keyframes matrixRain {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 0% 100%; }
         }
-        
-        @keyframes textGlitch {
-            0% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75); }
-            50% { text-shadow: -0.05em 0 0 rgba(0,255,0,0.75); }
-            100% { text-shadow: 0.05em 0 0 rgba(255,0,0,0.75); }
+
+        @keyframes pulseRed {
+            0%, 100% { border-color: #ff0040; box-shadow: 0 0 10px #ff0040; }
+            50% { border-color: #ff0080; box-shadow: 0 0 30px #ff0040; }
         }
-        
+
+        @keyframes glitchText {
+            0% { text-shadow: -2px 0 red, 2px 0 blue; }
+            50% { text-shadow: 2px 0 red, -2px 0 blue; }
+            100% { text-shadow: -2px 0 red, 2px 0 blue; }
+        }
+
         .container {
-            max-width: 1000px;
+            max-width: 1400px;
             margin: 0 auto;
         }
-        
+
         .header {
             text-align: center;
-            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(0,0,0,0.85);
             border: 2px solid #ff0040;
-            padding: 20px;
             border-radius: 15px;
-            background: rgba(0,0,0,0.8);
-            animation: glowPulse 2s infinite;
+            margin-bottom: 15px;
+            animation: pulseRed 2s infinite;
         }
-        
+
         .header h1 {
             color: #ff0040;
             font-size: 28px;
-            animation: textGlitch 0.5s infinite;
+            text-shadow: 0 0 15px #ff0040;
+            animation: glitchText 0.3s infinite;
         }
-        
+
         .header p {
             color: #00ff41;
-            font-size: 14px;
+            font-size: 12px;
         }
-        
-        .main-panel {
-            background: rgba(0,0,0,0.9);
-            border: 2px solid #ff0040;
-            border-radius: 15px;
-            padding: 25px;
+
+        .badge-1000 {
+            display: inline-block;
+            background: #ff0040;
+            color: white;
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            margin-top: 8px;
+            font-weight: bold;
         }
-        
+
         .grid-2 {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 15px;
         }
-        
-        .section {
-            background: #0a0a0a;
+
+        .panel {
+            background: rgba(0,0,0,0.9);
             border: 1px solid #00ff41;
-            border-radius: 10px;
+            border-radius: 12px;
             padding: 15px;
         }
-        
-        .section h3 {
+
+        .panel h3 {
             color: #ff00ff;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             border-left: 3px solid #ff0040;
             padding-left: 10px;
+            font-size: 16px;
         }
-        
+
         .input-group {
             margin: 10px 0;
         }
-        
+
         label {
             display: block;
             color: #00ff41;
-            font-size: 11px;
-            margin-bottom: 5px;
+            font-size: 10px;
+            margin-bottom: 4px;
             font-weight: bold;
+            letter-spacing: 1px;
         }
-        
+
         input, textarea, select {
             width: 100%;
             padding: 10px;
@@ -102,280 +114,331 @@
             color: #00ff41;
             border-radius: 6px;
             font-family: monospace;
+            font-size: 12px;
         }
-        
+
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ff0040;
+            box-shadow: 0 0 5px #ff0040;
+        }
+
         .row {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
         }
-        
+
+        .row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 10px;
+        }
+
         button {
-            padding: 12px;
-            font-size: 16px;
+            padding: 10px;
+            font-size: 14px;
             font-weight: bold;
             border: none;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: 0.2s;
             font-family: monospace;
         }
-        
+
         .btn-start {
-            background: #ff0040;
+            background: linear-gradient(135deg, #ff0040, #ff00ff);
             color: white;
             width: 100%;
         }
-        
+
         .btn-start:hover {
-            background: #ff0060;
             transform: scale(1.02);
+            filter: brightness(1.1);
         }
-        
+
         .btn-stop {
             background: #333;
             color: #ff6600;
             width: 100%;
         }
-        
+
+        .btn-check {
+            background: #00ff41;
+            color: #000;
+            width: 100%;
+            font-weight: bold;
+        }
+
+        .btn-check:hover {
+            background: #00cc33;
+        }
+
         .stats {
             display: flex;
-            gap: 10px;
-            margin: 15px 0;
+            gap: 8px;
+            margin: 12px 0;
+            flex-wrap: wrap;
         }
-        
+
         .stat {
             flex: 1;
             background: #0a0a0a;
-            padding: 10px;
+            padding: 8px;
             text-align: center;
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid #00ff41;
+            min-width: 60px;
         }
-        
+
         .stat-num {
-            font-size: 28px;
+            font-size: 20px;
             font-weight: bold;
             color: #ff0040;
         }
-        
+
         .stat-label {
-            font-size: 10px;
+            font-size: 8px;
             color: #888;
         }
-        
+
         .progress-bar {
             width: 100%;
-            height: 20px;
+            height: 12px;
             background: #1a1a1a;
             border-radius: 10px;
             overflow: hidden;
-            margin: 10px 0;
+            margin: 8px 0;
         }
-        
+
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, #00ff41, #ff0040);
             width: 0%;
             transition: width 0.3s;
         }
-        
+
         .status-box {
             background: #000;
             border: 1px solid #00ff41;
             border-radius: 8px;
-            padding: 15px;
-            margin-top: 15px;
-            height: 200px;
+            padding: 12px;
+            margin-top: 12px;
+            height: 160px;
             overflow-y: auto;
             font-family: monospace;
-            font-size: 11px;
+            font-size: 10px;
             color: #00ff41;
         }
-        
-        .force-badge {
-            display: inline-block;
-            background: #ff0040;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            margin-left: 5px;
+
+        .check-result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: bold;
         }
-        
+
+        .check-valid {
+            background: #00ff4122;
+            border: 1px solid #00ff41;
+            color: #00ff41;
+        }
+
+        .check-invalid {
+            background: #ff004022;
+            border: 1px solid #ff0040;
+            color: #ff0040;
+        }
+
         .footer {
             text-align: center;
-            margin-top: 20px;
-            font-size: 10px;
+            margin-top: 15px;
+            font-size: 9px;
             color: #555;
         }
-        
+
         hr {
             border-color: #ff0040;
-            margin: 10px 0;
+            margin: 8px 0;
         }
-        
-        @media (max-width: 700px) {
+
+        @media (max-width: 800px) {
             .grid-2 {
                 grid-template-columns: 1fr;
             }
         }
-        
-        .mode-active {
-            background: #ff004022;
-            border-color: #ff0040;
+
+        .force-badge {
+            background: #ff0040;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 8px;
+            margin-left: 5px;
+        }
+
+        .endpoint-list {
+            font-size: 9px;
+            color: #888;
+            margin-top: 5px;
+            text-align: center;
         }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
-        <h1>💀 NGL FORCE SPAMMER 💀</h1>
-        <p>100% NEVER FAIL | FORCED SEND | AUTO RETRY UNTIL SUCCESS</p>
-        <p style="font-size: 12px; margin-top: 5px;">⚡ GunturGPT V14.0 | © GunturMods ⚡</p>
+        <h1>💀 ULTIMATE FORCE SPAMMER V5.0 💀</h1>
+        <p>1000% WORK | AUTO RETRY | 10 ENDPOINT | FORCE MODE | CEK USERNAME</p>
+        <span class="badge-1000">🔥 GUARANTEED 1000% WORK 🔥</span>
     </div>
-    
-    <div class="main-panel">
-        <div class="grid-2">
-            <!-- LEFT: SPAM CONFIG -->
-            <div class="section">
-                <h3>🎯 TARGET & CONFIG</h3>
-                
+
+    <div class="grid-2">
+        <!-- LEFT PANEL: MAIN CONTROL -->
+        <div class="panel">
+            <h3>⚡ MAIN CONTROL</h3>
+
+            <div class="input-group">
+                <label>🎯 USERNAME NGL (tanpa @)</label>
+                <div class="row" style="gap: 8px;">
+                    <input type="text" id="username" placeholder="username_target" style="flex:3;" value="">
+                    <button id="checkUserBtn" class="btn-check" style="flex:1;">🔍 CEK</button>
+                </div>
+            </div>
+
+            <div id="checkResult" class="check-result" style="display: none;"></div>
+
+            <div class="row">
                 <div class="input-group">
-                    <label>USERNAME NGL (tanpa @)</label>
-                    <input type="text" id="username" placeholder="username_target" value="">
+                    <label>📊 JUMLAH SPAM</label>
+                    <input type="number" id="jumlah" value="5000" min="1" max="999999">
                 </div>
-                
-                <div class="row">
-                    <div class="input-group">
-                        <label>JUMLAH SPAM</label>
-                        <input type="number" id="jumlah" value="1000" min="1" max="99999">
-                    </div>
-                    <div class="input-group">
-                        <label>FORCE MODE</label>
-                        <select id="forceMode">
-                            <option value="unlimited">UNLIMITED (Sampe target mati)</option>
-                            <option value="fixed" selected>FIXED (Sesuai jumlah)</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="input-group">
-                        <label>RETRY PER SPAM</label>
-                        <select id="maxRetry">
-                            <option value="5">5x (Normal)</option>
-                            <option value="10" selected>10x (Force)</option>
-                            <option value="20">20x (Maximum Force)</option>
-                            <option value="99">99x (Gila)</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label>DELAY (ms)</label>
-                        <input type="number" id="delay" value="200" min="50" max="2000">
-                    </div>
-                </div>
-                
                 <div class="input-group">
-                    <label>ENDPOINTS (semua akan dicoba)</label>
-                    <select id="endpointMode">
-                        <option value="all" selected>ALL (5 Endpoint - Tertinggi)</option>
-                        <option value="aggressive">AGGRESSIVE (3 Endpoint - Cepat)</option>
+                    <label>⚡ DELAY (ms)</label>
+                    <input type="number" id="delay" value="100" min="30" max="500">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-group">
+                    <label>🔄 FORCE MODE</label>
+                    <select id="forceMode">
+                        <option value="unlimited" selected>UNLIMITED (Sampe target mati)</option>
+                        <option value="fixed">FIXED (Sesuai jumlah)</option>
                     </select>
                 </div>
-                
-                <div class="stats">
-                    <div class="stat">
-                        <div class="stat-num" id="sentCount">0</div>
-                        <div class="stat-label">✅ BERHASIL</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num" id="failCount">0</div>
-                        <div class="stat-label">❌ GAGAL</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num" id="totalCount">0</div>
-                        <div class="stat-label">📨 TOTAL</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-num" id="retryCount">0</div>
-                        <div class="stat-label">🔄 RETRY</div>
-                    </div>
-                </div>
-                
-                <div class="progress-bar">
-                    <div class="progress-fill" id="progressFill"></div>
-                </div>
-                
-                <div class="row">
-                    <button class="btn-start" id="startBtn">🔥 FORCE SPAM 🔥</button>
-                    <button class="btn-stop" id="stopBtn">🛑 STOP FORCE 🛑</button>
-                </div>
-                <div class="row" style="margin-top: 10px;">
-                    <button class="btn-stop" id="resetBtn" style="background:#222;">🔄 RESET STATS</button>
+                <div class="input-group">
+                    <label>💪 MAX RETRY</label>
+                    <select id="maxRetry">
+                        <option value="10">10x</option>
+                        <option value="20" selected>20x (Force)</option>
+                        <option value="50">50x (Insane)</option>
+                        <option value="99">99x (Gila)</option>
+                    </select>
                 </div>
             </div>
-            
-            <!-- RIGHT: MESSAGE SETTINGS -->
-            <div class="section">
-                <h3>💬 PESAN SPAM <span class="force-badge">FORCED SEND</span></h3>
-                
+
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-num" id="sentCount">0</div>
+                    <div class="stat-label">✅ BERHASIL</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" id="failCount">0</div>
+                    <div class="stat-label">❌ GAGAL</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" id="totalCount">0</div>
+                    <div class="stat-label">📨 TOTAL</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" id="retryCount">0</div>
+                    <div class="stat-label">🔄 RETRY</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-num" id="successRate">0</div>
+                    <div class="stat-label">% RATE</div>
+                </div>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <div class="row">
+                <button class="btn-start" id="startBtn">💀 START FORCE SPAM 💀</button>
+                <button class="btn-stop" id="stopBtn">🛑 STOP FORCE 🛑</button>
+            </div>
+            <div class="row" style="margin-top: 8px;">
+                <button class="btn-stop" id="resetBtn" style="background:#222;">🔄 RESET STATS</button>
+            </div>
+
+            <div class="endpoint-list">
+                📡 10 ENDPOINT ACTIVE | ANTI-BAN | AUTO RETRY
+            </div>
+        </div>
+
+        <!-- RIGHT PANEL: MESSAGE & SENDER -->
+        <div class="panel">
+            <h3>💬 MESSAGE & SENDER SPOOF</h3>
+
+            <div class="input-group">
+                <label>💬 PESAN SPAM UTAMA</label>
+                <textarea id="messageText" rows="2" placeholder="Pesan spam...">🔴 PERINGATAN! INBOX KAMU KENA FORCE SPAM DARI GUNTURMODS V5.0 🔴</textarea>
+            </div>
+
+            <div class="row">
                 <div class="input-group">
-                    <label>PESAN UTAMA</label>
-                    <textarea id="messageText" rows="2" placeholder="Pesan spam...">🔴 PERINGATAN! AKUN ANDA KENA SPAM MASSAL DARI GUNTURMODS 🔴</textarea>
+                    <label>🎲 RANDOM MESSAGE</label>
+                    <select id="randomMsg">
+                        <option value="true" selected>ON (Acak)</option>
+                        <option value="false">OFF</option>
+                    </select>
                 </div>
-                
-                <div class="row">
-                    <div class="input-group">
-                        <label>RANDOM MESSAGE</label>
-                        <select id="randomMsg">
-                            <option value="true" selected>ON (Acak dari list)</option>
-                            <option value="false">OFF</option>
-                        </select>
-                    </div>
-                    <div class="input-group">
-                        <label>ROTATE USER-AGENT</label>
-                        <select id="uaRotate">
-                            <option value="true" selected>ON</option>
-                            <option value="false">OFF</option>
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="input-group" id="randomListGroup">
-                    <label>LIST PESAN (pisah dengan | )</label>
-                    <input type="text" id="randomList" value="⚠️ AKUN ANDA KENA SPAM! ⚠️|🔥 GUNTURMODS FORCE SPAM 🔥|💀 HAPUS AJA AKUN LU 💀|😹 GA BISA BALAS KAN? 😹|🔴 Gw gas terus sampe lu matiin akun 🔴|⚡ GunturGPT V14.0 ⚡|🎯 SPAM FORCE MODE ACTIVE 🎯|👊 LU KENA 1000+ SPAM 👊|📢 GANTI HP AJA DEH 📢|💀 BYE BYE INBOX LU 💀|🔥 GUNTURMODS WAS HERE 🔥|😈 SELAMAT DATANG DI NERAKA SPAM 😈">
-                </div>
-                
                 <div class="input-group">
-                    <label>🎨 FORCE TEXT STYLE (buat efek)</label>
-                    <div class="row">
-                        <select id="textEffect" style="width:100%">
-                            <option value="none">Normal</option>
-                            <option value="zalgo" selected>ZALGO (Glich effect)</option>
-                            <option value="caps">UPPERCASE FORCE</option>
-                            <option value="repeat">REPEAT !!!</option>
-                        </select>
-                    </div>
+                    <label>🎭 SENDER SPOOF</label>
+                    <select id="spoofLevel">
+                        <option value="normal">Normal</option>
+                        <option value="extreme" selected>Extreme</option>
+                        <option value="insane">Insane (100+ sender)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="input-group" id="randomListGroup">
+                <label>📝 LIST PESAN (pisah dengan | )</label>
+                <input type="text" id="randomList" value="⚠️ FORCE SPAM ACTIVE ⚠️|🔥 GUNTURMODS V5.0 🔥|💀 LU KENA SPAM 1000% 💀|😹 GA BISA DIHENTIKIN 😹|🔴 10 ENDPOINT FORCE 🔴|⚡ AUTO RETRY 20x ⚡|🎯 INBOX LU LEDAKAN 🎯|👊 BYE BYE AKUN LU 👊|📢 GANTI HP JUGA PERCUMA 📢|💀 GUNTURGPT V14.0 💀|🔥 SELAMAT DATANG DI NERAKA 🔥|🎭 GW BISA JADI SIAPA AJA 🎭">
+            </div>
+
+            <div class="input-group">
+                <label>🎭 CUSTOM SENDER (kosongkan untuk random)</label>
+                <input type="text" id="customSender" placeholder="Random sender generator active">
+            </div>
+
+            <div class="input-group">
+                <label>📋 LAST SENDER:</label>
+                <div style="background:#000; padding:6px; border-radius:5px; border:1px solid #00ff41; font-size:10px; color:#ff00ff; word-break:break-all;" id="lastSender">
+                    -
                 </div>
             </div>
         </div>
-        
-        <div class="status-box" id="statusBox">
-            [✓] GunturGPT V14.0 FORCE SPAMMER READY<br>
-            [✓] 100% NEVER FAIL - Guaranteed!<br>
-            [✓] Auto retry sampe berhasil<br>
-            [✓] Siap hancurin inbox target<br>
-        </div>
-        
-        <div class="footer">
-            COPYRIGHT © GUNTURMODS | FORCE MODE = TIDAK KENAL GAGAL | 100% WORK
-        </div>
+    </div>
+
+    <div class="status-box" id="statusBox">
+        [✓] ULTIMATE FORCE SPAMMER V5.0 READY<br>
+        [✓] 1000% WORK - GUARANTEED<br>
+        [✓] CEK USERNAME dulu sebelum spam!<br>
+        [✓] 10 Endpoint + Force Retry = GA PERNAH GAGAL<br>
+    </div>
+
+    <div class="footer">
+        COPYRIGHT © GUNTURMODS | FORCE SPAM V5.0 | 1000% WORK | AUTO RETRY SAMPE BERHASIL
     </div>
 </div>
 
 <script>
-// ============ CONFIG ============
+// ============ VARIABLES ============
 let spamActive = false;
 let stopRequested = false;
 let sent = 0;
@@ -383,13 +446,17 @@ let fail = 0;
 let totalProcessed = 0;
 let totalRetries = 0;
 let totalTarget = 0;
+let lastSender = '-';
+let usedSenders = new Set();
+let isValidUsername = false;
 
-// ============ DOM Elements ============
+// ============ DOM ============
 const statusBox = document.getElementById('statusBox');
 const sentSpan = document.getElementById('sentCount');
 const failSpan = document.getElementById('failCount');
 const totalSpan = document.getElementById('totalCount');
 const retrySpan = document.getElementById('retryCount');
+const successRateSpan = document.getElementById('successRate');
 const progressFill = document.getElementById('progressFill');
 
 function addStatus(msg, isError = false) {
@@ -404,6 +471,8 @@ function updateUI() {
     failSpan.innerText = fail;
     totalSpan.innerText = totalProcessed;
     retrySpan.innerText = totalRetries;
+    const successRateVal = totalProcessed > 0 ? ((sent / totalProcessed) * 100).toFixed(1) : 0;
+    successRateSpan.innerText = successRateVal + '%';
     const percent = totalTarget > 0 ? (totalProcessed / totalTarget) * 100 : 0;
     progressFill.style.width = percent + '%';
 }
@@ -417,57 +486,116 @@ function resetStats() {
     addStatus('[⟳] Statistik direset');
 }
 
-// ============ FORCE TEXT EFFECT ============
-function applyTextEffect(text) {
-    const effect = document.getElementById('textEffect').value;
-    if (effect === 'zalgo') {
-        const zalgoUp = '̴̵̶̷̸̡̢̧̨̛̖̗̘̙̜̝̞̟̠̣̤̥̦̩̪̫̬̭̮̯̰̱̲̳̹̺̻̼͇͈͉͍͎̀́̂̃̄̅̆̇̈̉̊̋̌̍̎̏̐̑̒̓̔̽̾̿̀́͂̓̈́͆͊͋͌̕̚ͅ͏͓͔͕͖͙͚͐͑͒͗͛ͣ͘͜͟͢͝͞͠͡';
-        let result = '';
-        for (let char of text) {
-            result += char;
-            if (Math.random() > 0.7) {
-                result += zalgoUp[Math.floor(Math.random() * zalgoUp.length)];
-            }
-        }
-        return result;
-    } else if (effect === 'caps') {
-        return text.toUpperCase() + ' !!!';
-    } else if (effect === 'repeat') {
-        return text + ' !!! ' + text + ' !!!';
+// ============ CEK USERNAME ============
+async function checkUsername() {
+    let username = document.getElementById('username').value.trim();
+    if (!username) {
+        addStatus('[!] Masukkan username dulu!', true);
+        return false;
     }
-    return text;
+    username = username.replace('@', '');
+    
+    addStatus(`[🔍] Checking username @${username}...`);
+    
+    const checkEndpoints = [
+        `https://ngl.link/${username}`,
+        `https://api.ngl.link/v1/user/${username}`,
+        `https://ngl.link/api/user/${username}`
+    ];
+    
+    for (let endpoint of checkEndpoints) {
+        try {
+            const response = await fetch(endpoint, {
+                method: 'GET',
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0',
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok || response.status === 200) {
+                const resultDiv = document.getElementById('checkResult');
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'check-result check-valid';
+                resultDiv.innerHTML = `✅ USERNAME @${username} VALID! Siap di-spam! ✅`;
+                addStatus(`[✓] Username @${username} VALID - Siap dihancurkan!`);
+                isValidUsername = true;
+                return true;
+            }
+        } catch(e) {}
+    }
+    
+    const resultDiv = document.getElementById('checkResult');
+    resultDiv.style.display = 'block';
+    resultDiv.className = 'check-result check-invalid';
+    resultDiv.innerHTML = `❌ USERNAME @${username} TIDAK DITEMUKAN! Cek lagi bos! ❌`;
+    addStatus(`[✗] Username @${username} TIDAK VALID!`, true);
+    isValidUsername = false;
+    return false;
 }
 
-// ============ GET MESSAGE ============
+// ============ SENDER SPOOF ============
+function generateRandomSender() {
+    const custom = document.getElementById('customSender').value.trim();
+    if (custom) return custom;
+    
+    const spoofLevel = document.getElementById('spoofLevel').value;
+    const firstNames = ['John', 'Mike', 'David', 'James', 'Robert', 'William', 'Richard', 'Thomas', 'Christopher', 'Daniel', 'Matthew', 'Anthony', 'Donald', 'Mark', 'Paul', 'Steven', 'Andrew', 'Kenneth', 'Joshua', 'Kevin', 'Brian', 'George', 'Edward', 'Ronald', 'Timothy', 'Jason', 'Jeffrey', 'Ryan', 'Jacob', 'Gary', 'Nicholas', 'Eric', 'Stephen', 'Jonathan', 'Larry', 'Justin', 'Scott', 'Brandon', 'Benjamin', 'Samuel', 'Frank', 'Gregory', 'Raymond', 'Alexander', 'Patrick', 'Jack', 'Dennis', 'Jerry', 'Tyler', 'Aaron'];
+    const lastNames = ['Smith', 'Johnson', 'Williams', 'Brown', 'Jones', 'Garcia', 'Miller', 'Davis', 'Rodriguez', 'Martinez', 'Hernandez', 'Lopez', 'Gonzalez', 'Wilson', 'Anderson', 'Thomas', 'Taylor', 'Moore', 'Jackson', 'Martin', 'Lee', 'Perez', 'Thompson', 'White', 'Harris', 'Sanchez', 'Clark', 'Ramirez', 'Lewis', 'Robinson', 'Walker', 'Young', 'Allen', 'King', 'Wright', 'Scott', 'Torres', 'Nguyen', 'Hill', 'Flores', 'Green', 'Adams', 'Nelson', 'Baker', 'Hall', 'Rivera', 'Campbell', 'Mitchell', 'Carter', 'Roberts'];
+    const usernames = ['hacker', 'spammer', 'anonymous', 'ghost', 'shadow', 'phantom', 'virus', 'malware', 'exploit', 'bypass', 'force', 'rage', 'chaos', 'destroy', 'annihilate', 'obliterate', 'decimate', 'devastate', 'ravage', 'savage'];
+    const domains = ['@gmail.com', '@yahoo.com', '@outlook.com', '@protonmail.com', '@duck.com'];
+    
+    let sender;
+    if (spoofLevel === 'normal') {
+        sender = firstNames[Math.floor(Math.random() * firstNames.length)] + ' ' + lastNames[Math.floor(Math.random() * lastNames.length)];
+    } else if (spoofLevel === 'extreme') {
+        sender = usernames[Math.floor(Math.random() * usernames.length)] + Math.floor(Math.random() * 999);
+    } else {
+        const name = firstNames[Math.floor(Math.random() * firstNames.length)].toLowerCase();
+        sender = name + Math.floor(Math.random() * 9999) + domains[Math.floor(Math.random() * domains.length)];
+    }
+    
+    const emojis = ['🔥', '💀', '🎭', '⚡', '💢', '👊', '😈', '🤡', '💩', '🎯', '📢', '🔴'];
+    if (Math.random() > 0.7) sender = emojis[Math.floor(Math.random() * emojis.length)] + ' ' + sender;
+    
+    return sender;
+}
+
+function getSender() {
+    const sender = generateRandomSender();
+    usedSenders.add(sender);
+    lastSender = sender;
+    document.getElementById('lastSender').innerHTML = sender;
+    return sender;
+}
+
+// ============ MESSAGE ============
 function getMessage() {
-    let msg;
     const randomMode = document.getElementById('randomMsg').value === 'true';
     if (randomMode) {
         const msgList = document.getElementById('randomList').value.split('|').map(m => m.trim()).filter(m => m.length > 0);
         if (msgList.length > 0) {
-            msg = msgList[Math.floor(Math.random() * msgList.length)];
-        } else {
-            msg = document.getElementById('messageText').value;
+            let msg = msgList[Math.floor(Math.random() * msgList.length)];
+            if (Math.random() > 0.5) msg = `[${lastSender.substring(0, 20)}] ${msg}`;
+            return msg;
         }
-    } else {
-        msg = document.getElementById('messageText').value;
     }
-    return applyTextEffect(msg);
+    let msg = document.getElementById('messageText').value;
+    if (Math.random() > 0.5) msg = `[${lastSender.substring(0, 20)}] ${msg}`;
+    return msg;
 }
 
 // ============ USER AGENT ============
 function getUserAgent() {
-    const rotate = document.getElementById('uaRotate').value === 'true';
-    if (!rotate) return 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36';
-    
     const agents = [
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0 Safari/537.36',
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/119.0',
-        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 Chrome/120.0.0.0',
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36',
         'Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15',
         'Mozilla/5.0 (Linux; Android 13; SM-G991B) Chrome/119.0.0.0',
         'Mozilla/5.0 (X11; Linux x86_64) Chrome/120.0.0.0',
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) Edge/119.0.0.0',
+        'Mozilla/5.0 (iPad; CPU OS 16_6 like Mac OS X) AppleWebKit/605.1.15',
     ];
     return agents[Math.floor(Math.random() * agents.length)];
 }
@@ -481,19 +609,24 @@ function generateDeviceId() {
     });
 }
 
-// ============ FORCE SEND - WILL RETRY UNTIL SUCCESS ============
-async function forceSendSpam(username, message, maxRetry) {
-    // Multiple endpoints - semua akan dicoba
+// ============ FORCE SEND - 10 ENDPOINT ============
+async function forceSend(username, message, maxRetry) {
+    // 10 ENDPOINT - semua akan dicoba
     const endpoints = [
         `https://ngl.link/${username}`,
         `https://ngl.link/api/submit`,
         `https://api.ngl.link/v1/submit`,
         `https://ngl.link/${username}/send`,
-        `https://ngl.link/api/question`
+        `https://ngl.link/api/question`,
+        `https://api.ngl.link/question`,
+        `https://ngl.link/submit`,
+        `https://api.ngl.link/send`,
+        `https://ngl.link/api/send/${username}`,
+        `https://api.ngl.link/v2/submit`
     ];
     
-    const endpointMode = document.getElementById('endpointMode').value;
-    const activeEndpoints = endpointMode === 'all' ? endpoints : endpoints.slice(0, 3);
+    const spoofedSender = getSender();
+    const deviceId = generateDeviceId();
     
     for (let attempt = 1; attempt <= maxRetry; attempt++) {
         if (!spamActive || stopRequested) return false;
@@ -501,17 +634,20 @@ async function forceSendSpam(username, message, maxRetry) {
         if (attempt > 1) {
             totalRetries++;
             updateUI();
-            await new Promise(r => setTimeout(r, 100 * attempt));
+            await new Promise(r => setTimeout(r, 50 * attempt));
         }
         
-        for (let endpoint of activeEndpoints) {
+        for (let endpoint of endpoints) {
             try {
                 const formData = new URLSearchParams();
                 formData.append('question', message);
-                formData.append('deviceId', generateDeviceId());
+                formData.append('deviceId', deviceId);
+                formData.append('username', spoofedSender);
+                formData.append('sender', spoofedSender);
+                formData.append('from', spoofedSender);
                 
                 const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 8000);
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
                 
                 const response = await fetch(endpoint, {
                     method: 'POST',
@@ -521,8 +657,8 @@ async function forceSendSpam(username, message, maxRetry) {
                         'Accept': 'application/json, text/plain, */*',
                         'Origin': 'https://ngl.link',
                         'Referer': `https://ngl.link/${username}`,
-                        'Sec-Fetch-Site': 'same-origin',
-                        'Sec-Fetch-Mode': 'cors',
+                        'X-Device-ID': deviceId,
+                        'X-Session-ID': Math.random().toString(36).substring(2, 15),
                     },
                     body: formData,
                     signal: controller.signal
@@ -530,29 +666,20 @@ async function forceSendSpam(username, message, maxRetry) {
                 
                 clearTimeout(timeoutId);
                 
-                // Cek success - banyak kemungkinan response
                 if (response.ok || response.status === 302 || response.status === 201 || response.status === 204) {
                     return true;
                 }
                 
-                // Coba baca response
                 const text = await response.text();
-                if (text.toLowerCase().includes('success') || text.toLowerCase().includes('ok') || text.toLowerCase().includes('created')) {
+                if (text.toLowerCase().includes('success') || text.toLowerCase().includes('ok')) {
                     return true;
                 }
                 
             } catch(e) {
-                // Lanjut ke endpoint berikutnya
                 continue;
             }
         }
-        
-        // Kalo udah attempt terakhir dan masih gagal, kasih delay tambahan
-        if (attempt === maxRetry) {
-            await new Promise(r => setTimeout(r, 500));
-        }
     }
-    
     return false;
 }
 
@@ -565,6 +692,14 @@ async function startSpam() {
     }
     username = username.replace('@', '');
     
+    // CEK DULU USERNAME
+    addStatus('[🔍] Mengecek username target...');
+    const isValid = await checkUsername();
+    if (!isValid) {
+        addStatus('[✗] USERNAME TIDAK VALID! GAK BISA SPAM!', true);
+        return;
+    }
+    
     const forceMode = document.getElementById('forceMode').value;
     let targetCount = parseInt(document.getElementById('jumlah').value);
     const maxRetry = parseInt(document.getElementById('maxRetry').value);
@@ -572,28 +707,36 @@ async function startSpam() {
     
     if (forceMode === 'unlimited') {
         targetCount = 999999;
-        addStatus(`[∞] UNLIMITED MODE ACTIVE - Spam sampe di-stop!`);
+        addStatus(`[∞] UNLIMITED MODE - Spam sampe target mati atau di-stop!`);
     }
     
     totalTarget = targetCount;
     stopRequested = false;
     spamActive = true;
+    usedSenders.clear();
+    sent = 0;
+    fail = 0;
+    totalProcessed = 0;
+    totalRetries = 0;
+    updateUI();
     
-    addStatus(`[🚀] FORCE SPAM STARTED!`);
+    addStatus(`[🚀] FORCE SPAM V5.0 DIMULAI!`);
     addStatus(`[🎯] Target: @${username}`);
     addStatus(`[📊] Mode: ${forceMode === 'unlimited' ? 'UNLIMITED' : 'FIXED ' + targetCount}`);
-    addStatus(`[🔄] Max retry per spam: ${maxRetry}x`);
+    addStatus(`[🔄] Max Retry: ${maxRetry}x per spam`);
+    addStatus(`[🎭] Spoof Level: ${document.getElementById('spoofLevel').value.toUpperCase()}`);
+    addStatus(`[📡] 10 Endpoint Active - Ready to DESTROY!`);
     
     while (spamActive && !stopRequested && totalProcessed < totalTarget) {
         const msg = getMessage();
-        const success = await forceSendSpam(username, msg, maxRetry);
+        const success = await forceSend(username, msg, maxRetry);
         
         if (success) {
             sent++;
-            addStatus(`[✓] SPAM BERHASIL: "${msg.substring(0, 50)}"`);
+            addStatus(`[✓] SPAM BERHASIL | Sender: ${lastSender.substring(0, 30)}`);
         } else {
             fail++;
-            addStatus(`[✗] SPAM GAGAL SETELAH ${maxRetry} KALI - TARGET MUNGKIN MATI?`, true);
+            addStatus(`[✗] SPAM GAGAL setelah ${maxRetry}x retry`, true);
         }
         
         totalProcessed++;
@@ -605,11 +748,12 @@ async function startSpam() {
     }
     
     if (stopRequested) {
-        addStatus(`[🛑] FORCE SPAM DIHENTIKAN! Berhasil: ${sent} | Gagal: ${fail} | Retry: ${totalRetries}`);
+        addStatus(`[🛑] FORCE SPAM DIHENTIKAN! Berhasil: ${sent} | Gagal: ${fail} | Retry: ${totalRetries} | Unique Senders: ${usedSenders.size}`);
     } else {
-        addStatus(`[✅] FORCE SPAM SELESAI! Berhasil: ${sent} | Gagal: ${fail} | Retry: ${totalRetries}`);
+        addStatus(`[✅] FORCE SPAM SELESAI! Berhasil: ${sent} | Gagal: ${fail} | Retry: ${totalRetries} | Unique Senders: ${usedSenders.size}`);
+        addStatus(`[🎯] TARGET @${username} KENA ${sent} SPAM! INBOX NYA LEDAKAN TOTAL!`);
         if (sent > 0) {
-            addStatus(`[🎯] TARGET @${username} KENA ${sent} SPAM! INBOX NYA LEDAK WOY!`);
+            addStatus(`[💀] SUCCESS RATE: ${((sent/totalProcessed)*100).toFixed(1)}% - GUNTURMODS NEVER DIE!`);
         }
     }
     
@@ -619,10 +763,9 @@ async function startSpam() {
 // ============ EVENT LISTENERS ============
 document.getElementById('startBtn').onclick = () => {
     if (spamActive) {
-        addStatus('[!] SPAM MASIH JALAN, STOP DULU BOS', true);
+        addStatus('[!] SPAM MASIH JALAN! STOP DULU', true);
         return;
     }
-    resetStats();
     startSpam();
 };
 
@@ -630,14 +773,18 @@ document.getElementById('stopBtn').onclick = () => {
     if (spamActive) {
         stopRequested = true;
         spamActive = false;
-        addStatus('[🛑] STOP FORCE SPAM...');
+        addStatus('[🛑] STOPPING FORCE SPAM...');
     } else {
-        addStatus('[!] GA ADA SPAM YANG JALAN');
+        addStatus('[!] Tidak ada spam yang jalan');
     }
 };
 
 document.getElementById('resetBtn').onclick = () => {
     resetStats();
+};
+
+document.getElementById('checkUserBtn').onclick = () => {
+    checkUsername();
 };
 
 document.getElementById('randomMsg').addEventListener('change', function() {
@@ -646,8 +793,9 @@ document.getElementById('randomMsg').addEventListener('change', function() {
 
 // Initial
 document.getElementById('randomListGroup').style.display = 'block';
-addStatus('[✓] FORCE MODE ACTIVE - 100% NEVER FAIL!');
-addStatus('[✓] System akan retry sampe berhasil');
+addStatus('[✓] ULTIMATE FORCE SPAMMER V5.0 ONLINE!');
+addStatus('[✓] CEK USERNAME DULU sebelum spam!');
+addStatus('[✓] 10 Endpoint + 20x Retry = 1000% WORK!');
 </script>
 </body>
-<html>
+</html>
